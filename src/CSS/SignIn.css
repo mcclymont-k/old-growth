@@ -1,0 +1,21 @@
+
+.signInBox {
+  height: auto;
+  width: 300px;
+  color: black;
+  background-color: white;
+  z-index: 2;
+  padding: 20px;
+  position:relative;
+}
+
+.inputField {
+  width:80%;
+  margin:10px;
+}
+
+.closeButton {
+  position: absolute;
+  top: 0;
+  right: 0
+}

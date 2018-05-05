@@ -1,0 +1,47 @@
+
+.bannerContainer {
+  width: 100vw;
+  display: grid;
+  border: 1px solid black;
+  height: 500px;
+  display: grid;
+  position: relative;
+}
+
+.bannerImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover
+}
+
+.overlayContainer{
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-template-rows: 50px 1fr;
+  position: absolute;
+  width: 100vw;
+  color: white;
+  height: 500px;
+}
+
+.logInButton {
+  background-color: white;
+  color: black;
+  appearance: none;
+  text-decoration: none;
+  padding: 5px;
+  position: absolute;
+  top: 0;
+  right:0;
+  margin: 20px;
+}
+
+.signOutAlert {
+  width: 400px;
+  height: auto;
+  background-color: white;
+  padding: 10px;
+  font-align: center;
+  text-align: center;
+}
