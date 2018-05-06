@@ -1,7 +1,7 @@
 import firebase from 'firebase'
 
 var config = {
-   apiKey: ,
+   apiKey: ?,
    authDomain: "old-growth.firebaseapp.com",
    databaseURL: "https://old-growth.firebaseio.com",
    projectId: "old-growth",

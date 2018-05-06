@@ -4,6 +4,7 @@ import '../App.css';
 import fire from '../firebase'
 import {Link, Route, HashRouter as Router} from 'react-router-dom'
 import SignIn from './SignIn'
+import SignUp from './SignUp'
 import firebase from 'firebase'
 
 const database = fire.database()
@@ -14,6 +15,7 @@ class Banner extends Component {
     super()
     this.state = {
       signIn: false,
+      signUp: false,
       signOutAlert: false,
       authenticated: false,
     }
@@ -27,9 +29,15 @@ class Banner extends Component {
     this.setState({signIn: true})
   }
 
+  openSignUp() {
+    this.closeModal()
+    this.setState({signUp: true})
+  }
+
   closeModal() {
     this.setState({
       signIn: false,
+      signUp: false,
       signOutAlert: false
     })
   }
@@ -55,11 +63,15 @@ class Banner extends Component {
                 <button>3</button>
                 <button className='signOut' onClick={this.signOut.bind(this)}>Sign Out</button>
               </div>
-            : <button className='logInButton' onClick={this.openSignIn.bind(this)}>Log in...</button>
+            : <button className='logInButton' onClick={this.openSignIn.bind(this)}>Log in/Sign up</button>
           }
         </div>
         {this.state.signIn
-          ? <SignIn closeSignIn={this.closeModal.bind(this)} authenticate={this.authenticate.bind(this)}/>
+          ? <SignIn closeSignIn={this.closeModal.bind(this)} authenticate={this.authenticate.bind(this)} openSignUp={this.openSignUp.bind(this)}/>
+          : []
+        }
+        {this.state.signUp
+          ? <SignUp closeSignUp={this.closeModal.bind(this)} />
           : []
         }
         {this.state.signOutAlert

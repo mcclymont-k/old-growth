@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import fire from '../firebase'
-import * as firebaseui from 'firebaseui'
 import firebase from 'firebase'
 import '../CSS/SignIn.css'
 import '../App.css';
@@ -37,6 +36,7 @@ class SignIn extends Component {
               <input type='text' ref={input => this.password = input} className='inputField'/>
               <button type='submit'>Log in</button>
             </form>
+            <button onClick={this.props.openSignUp}>Sign up</button>
             <button className='closeButton' onClick={this.props.closeSignIn}>x</button>
           </div>
         </div>
