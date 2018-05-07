@@ -18,11 +18,16 @@ class Banner extends Component {
       signUp: false,
       signOutAlert: false,
       authenticated: false,
+      userData: {}
     }
   }
 
-  authenticate() {
-    this.setState({authenticated: true})
+  authenticate(currentUserData) {
+    this.setState({
+      authenticated: true,
+      userData: currentUserData
+    })
+    console.log(this.state.userData)
   }
 
   openSignIn() {
@@ -45,7 +50,11 @@ class Banner extends Component {
   signOut() {
     firebase.auth().signOut()
       .then(() => {
-        this.setState({authenticated: false, signOutAlert: true})
+        this.setState({
+          authenticated: false,
+          signOutAlert: true,
+          userData: {}
+        })
       })
       .catch(error => console.log(error))
   }

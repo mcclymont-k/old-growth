@@ -17,11 +17,16 @@ class SignIn extends Component {
     e.preventDefault()
     firebase.auth().signInWithEmailAndPassword(this.email.value, this.password.value)
       .then(data => {
-        console.log(data)
-        this.props.authenticate()
-        this.props.closeSignIn()
+        // Retrieving the user data from the database and setting it to state.
+        let usersRef = database.ref('users')
+        usersRef.orderByChild('email').equalTo(this.email.value).on('value', e =>  {
+          let key = Object.keys(e.val())
+          let currentUserData = e.val()[key[0]]
+          this.props.authenticate(currentUserData)
+          this.props.closeSignIn()
+        })
       })
-      .catch((error) => console.log('Sorry Incorrect details!. try again'))
+      .catch((error) => console.log(error))
   }
 
   render() {
