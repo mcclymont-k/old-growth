@@ -27,7 +27,7 @@ class Banner extends Component {
       authenticated: true,
       userData: currentUserData
     })
-    console.log(this.state.userData)
+    console.log(this.state.userData.contributionLevel)
   }
 
   openSignIn() {
@@ -66,12 +66,23 @@ class Banner extends Component {
         <div className='overlayContainer'>
           <h1>Old Growth</h1>
           {this.state.authenticated
-            ? <div>
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <button className='signOut' onClick={this.signOut.bind(this)}>Sign Out</button>
-              </div>
+            ? this.state.userData.contributionLevel === '1'
+              ? <div>
+                  <button>1</button>
+                  <button className='signOut' onClick={this.signOut.bind(this)}>Sign Out</button>
+                </div>
+              : this.state.userData.contributionLevel === '2'
+                ? <div>
+                    <button>1</button>
+                    <button>2</button>
+                    <button className='signOut' onClick={this.signOut.bind(this)}>Sign Out</button>
+                  </div>
+                : <div>
+                    <button>1</button>
+                    <button>2</button>
+                    <button>3</button>
+                    <button className='signOut' onClick={this.signOut.bind(this)}>Sign Out</button>
+                  </div>
             : <button className='logInButton' onClick={this.openSignIn.bind(this)}>Log in/Sign up</button>
           }
         </div>

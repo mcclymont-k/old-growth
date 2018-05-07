@@ -38,7 +38,7 @@ class SignIn extends Component {
               <h2>Email:</h2>
               <input type='email' ref={input => this.email = input} className='inputField' />
               <h2>Password:</h2>
-              <input type='text' ref={input => this.password = input} className='inputField'/>
+              <input type='password' ref={input => this.password = input} className='inputField'/>
               <button type='submit'>Log in</button>
             </form>
             <button onClick={this.props.openSignUp}>Sign up</button>

@@ -12,6 +12,9 @@ class SignUp extends Component {
     this.state = {
       signUpAlert: false,
       contributionAlert: false,
+      radio1: false,
+      radio2: false,
+      radio3: false
     }
   }
 
@@ -37,16 +40,31 @@ class SignUp extends Component {
   }
 
   handleContribution(e) {
+    console.log(this.state.contributionLevel)
     e.preventDefault()
     const usersRef = database.ref('users')
     let userData = this.state.userData
-    userData.contributionLevel = this.contributionLevel.value
+    userData.contributionLevel = this.state.contributionLevel
     console.log(userData)
     usersRef.push(userData)
     this.setState({
       contributionAlert: false,
       signUpAlert: true
     })
+  }
+
+  radioButtonHandler(e) {
+    let currentRadio = 'radio' + e.target.value
+    let object = {}
+    object[currentRadio] = !this.state[currentRadio]
+    this.setState({
+      radio1: false,
+      radio2: false,
+      radio3: false,
+      contributionLevel: e.target.value
+    })
+    this.setState(object)
+    console.log(object)
   }
 
 
@@ -61,11 +79,11 @@ class SignUp extends Component {
             : this.state.contributionAlert
               ? <form className='contributionContainer' onSubmit={this.handleContribution.bind(this)}>
                   <h2>Tier 1</h2>
-                  <input type='checkBox' value='1' ref={input => this.contributionLevel = input} />
+                  <input type='radio' value='1' onClick={e => this.radioButtonHandler(e)} checked={this.state.radio1} />
                   <h2>Tier 2</h2>
-                  <input type='checkBox' value='2' ref={input => this.contributionLevel = input} />
+                  <input type='radio' value='2' onClick={e => this.radioButtonHandler(e)} checked={this.state.radio2}/>
                   <h2>Tier 3</h2>
-                  <input type='checkBox' value='3' ref={input => this.contributionLevel = input} />
+                  <input type='radio' value='3' onClick={e => this.radioButtonHandler(e)} checked={this.state.radio3}/>
                   <button type='submit' />
                 </form>
               : <form onSubmit={this.handleSignUp.bind(this)}>
@@ -77,7 +95,7 @@ class SignUp extends Component {
                   <h2>Email</h2>
                   <input type='email' ref={input => this.email = input} className='inputField' />
                   <h2>Password:</h2>
-                  <input type='text' ref={input => this.password = input} className='inputField'/>
+                  <input type='password' ref={input => this.password = input} className='inputField'/>
                   <button type='submit'>Sign up</button>
                 </form>
           }
