@@ -4,7 +4,6 @@
   display: grid;
   border: 1px solid black;
   height: 500px;
-  display: grid;
   position: relative;
 }
 
@@ -26,9 +25,9 @@
 }
 
 .logInButton {
-  background-color: white;
-  color: black;
-  appearance: none;
+  background-color: rgba(0,0,0,0);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.5);
   text-decoration: none;
   padding: 5px;
   position: absolute;
@@ -37,11 +36,7 @@
   margin: 20px;
 }
 
-.signOutAlert {
-  width: 400px;
-  height: auto;
-  background-color: white;
-  padding: 10px;
-  font-align: center;
-  text-align: center;
+.logInButton:hover {
+    border: 1px solid rgba(255,255,255);
+    cursor: pointer;
 }

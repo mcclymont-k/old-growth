@@ -6,16 +6,65 @@
   background-color: white;
   z-index: 2;
   padding: 20px;
-  position:relative;
+  position:relative
 }
 
 .inputField {
   width:80%;
-  margin:10px;
+  margin:10px
 }
 
 .closeButton {
   position: absolute;
   top: 0;
   right: 0
+}
+
+.signInBox h3 {
+  font-size: 8px;
+  margin-top: 15px;
+  margin-bottom: 0;
+  position: absolute;
+  right: 0;
+  margin: 5px;
+}
+
+.logIn {
+  border: none;
+  font-size: 15px;
+  background-color: white;
+  margin-top: 20px;
+}
+
+.logIn:hover {
+  cursor: pointer;
+}
+
+.signInForm {
+  display: grid;
+  justify-items: center;
+  padding-bottom: 30px;
+}
+
+.logIn::after {
+  content:'';
+  width: 0px;
+  height: 2px;
+  background-color: red;
+  display: block;
+}
+
+.logIn:hover::after {
+  animation: animateLine 0.2s linear forwards;
+  cursor: pointer;
+}
+
+
+@keyframes animateLine {
+  0% {
+    width: 0
+  }
+  100% {
+    width:100%
+  }
 }

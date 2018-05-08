@@ -1,11 +1,11 @@
 import React, {Component} from 'react'
 import '../CSS/Banner.css'
 import '../App.css';
-import fire from '../firebase'
 import {Link, Route, HashRouter as Router} from 'react-router-dom'
 import SignIn from './SignIn'
 import SignUp from './SignUp'
 import firebase from 'firebase'
+import fire from '../firebase'
 
 const database = fire.database()
 const forest = require('../Images/forest.jpg')
@@ -21,13 +21,24 @@ class Banner extends Component {
       userData: {}
     }
   }
+// not working beacuse database updates after
+  componentDidMount() {
+  }
 
-  authenticate(currentUserData) {
-    this.setState({
-      authenticated: true,
-      userData: currentUserData
+  authenticate(email) {
+    let usersRef = database.ref('users')
+    console.log(email)
+    usersRef.orderByChild('email').equalTo(email).on('value', e =>  {
+      console.log(e.val())
+      let key = Object.keys(e.val())
+      let currentUserData = e.val()[key[0]]
+      this.setState({
+        authenticated: true,
+        userData: currentUserData
+      })
+      console.log(this.state.userData)
+      this.closeModal()
     })
-    console.log(this.state.userData.contributionLevel)
   }
 
   openSignIn() {
@@ -87,7 +98,7 @@ class Banner extends Component {
           }
         </div>
         {this.state.signIn
-          ? <SignIn closeSignIn={this.closeModal.bind(this)} authenticate={this.authenticate.bind(this)} openSignUp={this.openSignUp.bind(this)}/>
+          ? <SignIn authenticate={this.authenticate.bind(this)} openSignUp={this.openSignUp.bind(this)} closeSignIn={this.closeModal.bind(this)}/>
           : []
         }
         {this.state.signUp
@@ -96,8 +107,8 @@ class Banner extends Component {
         }
         {this.state.signOutAlert
           ? <div className='overlay'>
-              <div className='signOutAlert' onClick={this.closeModal.bind(this)}>
-                <h2>You have succesfully signed out, please come again!</h2>
+              <div className='changeAlert' onClick={this.closeModal.bind(this)}>
+                You have succesfully signed out, please come again!
               </div>
             </div>
           : []

@@ -1,5 +1,85 @@
 .signUpContainer {
-  width: 200px;
+  width: 600px;
   height: auto;
   background-color: white;
+  position: relative;
+  padding: 10px;
+}
+
+.signUpForm {
+  text-align: center;
+}
+
+.signUpForm h2 {
+  font-size: 15px;
+}
+
+.signUpButton {
+  border: none;
+  background-color: white;
+  margin-top: 40px;
+}
+
+.signUpButton:hover {
+  cursor: pointer;
+}
+
+.signUpButton::after {
+  content:'';
+  width: 0px;
+  height: 2px;
+  background-color: red;
+  display: block;
+}
+
+.signUpButton:hover::after {
+  animation: animateLine 0.2s linear forwards;
+}
+
+.contributionContainer {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-gap: 20px;
+  max-height:750px;
+  overflow: auto;
+  position: relative;
+}
+
+.contributionContainer p {
+  font-size: 12px;
+}
+
+.contributionSubmitButton {
+  align-self: center;
+  margin: auto;
+
+    margin-top: auto;
+  border: none;
+  background-color: white;
+  font-size: 15px;
+}
+
+.contributionSubmitButton:hover {
+  cursor: pointer;
+}
+
+.contributionSubmitButton::after {
+  content: '';
+  width: 0px;
+  height: 2px;
+  background-color: red;
+  display: block;
+}
+
+.contributionSubmitButton:hover::after {
+  animation: animateLine 0.2s linear forwards
+}
+
+@keyframes animateLine {
+  0% {
+    width: 0
+  }
+  100% {
+    width:100%
+  }
 }

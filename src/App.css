@@ -8,3 +8,27 @@
   align-items: center;
   justify-items: center;
 }
+
+.closeButton {
+  border: none;
+  background-color: white;
+}
+
+.closeButton:hover {
+  cursor: pointer;
+}
+
+.clickLink:hover {
+  color: red;
+  cursor: pointer;
+}
+
+.changeAlert {
+  width: 400px;
+  height: auto;
+  background-color: white;
+  padding: 30px;
+  text-align: center;
+  font-size: 15px;
+  margin: auto;
+}
