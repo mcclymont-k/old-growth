@@ -18,25 +18,31 @@ class Banner extends Component {
       signUp: false,
       signOutAlert: false,
       authenticated: false,
-      userData: {}
+      userData: {},
+      checkAuth: true
     }
   }
 // not working beacuse database updates after
   componentDidMount() {
+    let listener = firebase.auth().onAuthStateChanged(user => {
+      if(user) {
+        this.authenticate(user.email)
+      } else {
+        console.log('no user')
+      }
+      listener()
+    })
   }
 
   authenticate(email) {
     let usersRef = database.ref('users')
-    console.log(email)
     usersRef.orderByChild('email').equalTo(email).on('value', e =>  {
-      console.log(e.val())
       let key = Object.keys(e.val())
       let currentUserData = e.val()[key[0]]
       this.setState({
         authenticated: true,
         userData: currentUserData
       })
-      console.log(this.state.userData)
       this.closeModal()
     })
   }
@@ -102,7 +108,7 @@ class Banner extends Component {
           : []
         }
         {this.state.signUp
-          ? <SignUp closeSignUp={this.closeModal.bind(this)} />
+          ? <SignUp closeSignUp={this.closeModal.bind(this)} authenticate={this.authenticate.bind(this)}/>
           : []
         }
         {this.state.signOutAlert

@@ -47,6 +47,7 @@ class SignUp extends Component {
     userData.contributionLevel = this.state.contributionLevel
     console.log(userData)
     usersRef.push(userData)
+    this.props.authenticate(this.state.userData.email)
     this.setState({
       contributionAlert: false,
       signUpAlert: true
