@@ -28,6 +28,25 @@
     cursor: pointer
 }
 
+.donationButton {
+  position: absolute;
+  top: 80px;
+  left: 30px;
+  background-color: white;
+  border:none;
+  border-radius: 50%;
+  padding: 5px;
+  color: #ec4700;
+  height:50px;
+  width: 50px;
+  font-size: 9px;
+  border: 1px solid #965e5e
+}
+
+.donationButton:hover {
+  cursor: pointer
+}
+
 .navBarContainer {
   width:100%;
   display: grid;
@@ -70,11 +89,32 @@
   animation: animateLine 0.2s linear forwards
 }
 
+.spinner {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: none;
+  border-top: 1px solid white;
+  border-left: 1px solid white;
+  margin: 25px 65px;
+  animation: spinner 0.3s linear infinite
+}
+
 @keyframes animateLine {
   0% {
     width: 0;
   }
   100% {
     width:100%;
+  }
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg)
+  }
+
+  100% {
+    transform: rotate(360deg)
   }
 }

@@ -23,7 +23,10 @@ class Home extends Component {
         <Banner />
         <div className='bannerContainer'>
           <img className='bannerImage' src={forest} />
-          <h1>Old Growth</h1>
+          <div className='titleContainer'>
+            <h1>Old Growth</h1>
+            <h2>FOREST BUILDING FOR THE FUTURE</h2>
+          </div>
         </div>
         <div className='tester'>
         </div>

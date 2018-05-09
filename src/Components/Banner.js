@@ -19,7 +19,8 @@ class Banner extends Component {
       signOutAlert: false,
       authenticated: false,
       userData: {},
-      checkAuth: true
+      checkAuth: true,
+      loading: true
     }
   }
 // not working beacuse database updates after
@@ -28,7 +29,7 @@ class Banner extends Component {
       if(user) {
         this.authenticate(user.email)
       } else {
-        console.log('no user')
+        this.setState({loading: false})
       }
       listener()
     })
@@ -41,7 +42,8 @@ class Banner extends Component {
       let currentUserData = e.val()[key[0]]
       this.setState({
         authenticated: true,
-        userData: currentUserData
+        userData: currentUserData,
+        loading: false
       })
       this.closeModal()
     })
@@ -80,6 +82,13 @@ class Banner extends Component {
     return (
           <div className='navBarContainer'>
             {this.state.authenticated
+              ? <button className='donationButton'>DONATE</button>
+              : []
+            }
+            {this.state.loading
+            ? <div className='spinner'>
+              </div>
+            : this.state.authenticated
               ? this.state.userData.contributionLevel === '1'
                 ? <div className='contributionLevelNav'>
                     <div className='buttonBar'>
