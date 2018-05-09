@@ -12,15 +12,30 @@ class Home extends Component {
     this.state = {
     }
   }
-
+  componentDidMount() {
+    window.onscroll = function(e){
+      const titleGrab = document.getElementById('title')
+      e.pageY > 170
+      ? (
+          titleGrab.style.position = 'fixed',
+          titleGrab.style.fontSize = '50px',
+          titleGrab.style.color = '#ec4700'
+        )
+      : (
+          titleGrab.style.position = 'static',
+          titleGrab.style.fontSize = '60px',
+          titleGrab.style.color = 'white'
+        )
+    }
+  }
   render() {
     return (
       <div>
-        <Banner />
         <div className='bannerContainer'>
+          <Banner />
           <img className='bannerImage' src={forest} />
           <div className='titleContainer'>
-            <h1>old growTh</h1>
+            <h1 id='title'>old growTh</h1>
             <h2>FOREST BUILDING FOR THE FUTURE</h2>
           </div>
         </div>

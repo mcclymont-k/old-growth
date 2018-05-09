@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Amatic+SC');
 
+.tester {
+  height: 1000px
+}
 
 .overlay {
   display: grid;
@@ -44,17 +47,22 @@
   position: relative;
   align-items: center;
   justify-items: center;
-  z-index: -1;
 }
 
 .titleContainer {
   color: white;
   text-align: center;
-  font-family: 'Amatic SC', cursive
+  font-family: 'Amatic SC', cursive;
+  display: grid;
+  justify-items: center
 }
 
 .titleContainer h1 {
-  font-size: 60px
+  font-size: 60px;
+  top: 0;
+  margin: 0;
+  transition: 0.3s;
+  z-index: 100 !important
 }
 
 .titleContainer h2 {

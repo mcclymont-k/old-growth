@@ -60,7 +60,8 @@
   background-color: rgba(0,0,0,0.5);
   height: 60px;
   justify-items: flex-end;
-  position: fixed
+  position: fixed;
+  top: 0
 }
 
 .contributionLevelNav {
