@@ -8,7 +8,7 @@ import firebase from 'firebase'
 import fire from '../firebase'
 
 const database = fire.database()
-const forest = require('../Images/forest.jpg')
+
 
 class Banner extends Component {
   constructor() {
@@ -78,31 +78,33 @@ class Banner extends Component {
 
   render() {
     return (
-      <div className='bannerContainer'>
-        <img className='bannerImage' src={forest} />
-        <div className='overlayContainer'>
-          <h1>Old Growth</h1>
-          {this.state.authenticated
-            ? this.state.userData.contributionLevel === '1'
-              ? <div>
-                  <button>1</button>
-                  <button className='signOut' onClick={this.signOut.bind(this)}>Sign Out</button>
-                </div>
-              : this.state.userData.contributionLevel === '2'
-                ? <div>
-                    <button>1</button>
-                    <button>2</button>
-                    <button className='signOut' onClick={this.signOut.bind(this)}>Sign Out</button>
+          <div className='navBarContainer'>
+            {this.state.authenticated
+              ? this.state.userData.contributionLevel === '1'
+                ? <div className='contributionLevelNav'>
+                    <div className='buttonBar'>
+                      <button className='contentButton'>News</button>
+                    </div>
+                    <button className='signInButton' onClick={this.signOut.bind(this)}>Sign Out</button>
                   </div>
-                : <div>
-                    <button>1</button>
-                    <button>2</button>
-                    <button>3</button>
-                    <button className='signOut' onClick={this.signOut.bind(this)}>Sign Out</button>
-                  </div>
-            : <button className='logInButton' onClick={this.openSignIn.bind(this)}>Log in/Sign up</button>
-          }
-        </div>
+                : this.state.userData.contributionLevel === '2'
+                  ? <div className='contributionLevelNav'>
+                      <div className='buttonBar'>
+                        <button className='contentButton'>News</button>
+                        <button className='contentButton'>Build</button>
+                      </div>
+                      <button className='signInButton' onClick={this.signOut.bind(this)}>Sign Out</button>
+                    </div>
+                  : <div className='contributionLevelNav'>
+                      <div className='buttonBar'>
+                        <button className='contentButton'>News</button>
+                        <button className='contentButton'>Build</button>
+                        <button className='contentButton'>Community</button>
+                      </div>
+                      <button className='signInButton' onClick={this.signOut.bind(this)}>Sign Out</button>
+                    </div>
+              : <button className='signInButton' onClick={this.openSignIn.bind(this)}>Log in/Sign up</button>
+            }
         {this.state.signIn
           ? <SignIn authenticate={this.authenticate.bind(this)} openSignUp={this.openSignUp.bind(this)} closeSignIn={this.closeModal.bind(this)}/>
           : []

@@ -1,17 +1,4 @@
 
-.bannerContainer {
-  width: 100vw;
-  display: grid;
-  border: 1px solid black;
-  height: 500px;
-  position: relative;
-}
-
-.bannerImage {
-  width: 100%;
-  height: 100%;
-  object-fit: cover
-}
 
 .overlayContainer{
   display: grid;
@@ -22,21 +9,72 @@
   width: 100vw;
   color: white;
   height: 500px;
+  z-index: 2;
 }
 
-.logInButton {
+.signInButton {
   background-color: rgba(0,0,0,0);
   color: white;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(0,0,0,0) !important;
   text-decoration: none;
   padding: 5px;
-  position: absolute;
-  top: 0;
-  right:0;
-  margin: 20px;
+  margin: 25px 30px;
+  position: fixed;
+  right: 0;
 }
 
-.logInButton:hover {
-    border: 1px solid rgba(255,255,255);
-    cursor: pointer;
+.signInButton:hover {
+    border: 1px solid rgba(255,255,255) !important;
+    cursor: pointer
+}
+
+.navBarContainer {
+  width:100%;
+  display: grid;
+  align-items: center;
+  background-color: rgba(0,0,0,0.5);
+  height: 60px;
+  justify-items: flex-end;
+  position: fixed
+}
+
+.contributionLevelNav {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-flow: column;
+  width: 100%;
+  height:100%;
+  align-items: center;
+}
+
+.contributionLevelNav button {
+  border: none;
+  background-color: rgba(0,0,0,0);
+  color: white;
+  margin-left: 50px;
+}
+
+.contributionLevelNav button:hover {
+  cursor: pointer;
+}
+
+.contentButton::after {
+  content:'';
+  width: 0;
+  height: 2px;
+  background-color: grey;
+  display: block;
+}
+
+.contentButton:hover::after {
+  animation: animateLine 0.2s linear forwards
+}
+
+@keyframes animateLine {
+  0% {
+    width: 0;
+  }
+  100% {
+    width:100%;
+  }
 }

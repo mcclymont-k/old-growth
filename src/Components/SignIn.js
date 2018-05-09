@@ -24,16 +24,14 @@ class SignIn extends Component {
 
   render() {
     return(
-      <div>
-        <div className='overlay'>
-          <div className='signInBox'>
-            <form onSubmit={this.handleSubmit.bind(this)} className='signInForm'>
-              <input type='email' ref={input => this.email = input} className='inputField' placeholder='email' />
-              <input type='password' ref={input => this.password = input} className='inputField' placeholder='password'/>
-              <button type='submit' className='logIn'>Log in</button>
-            </form>
-            <h3>Click <span onClick={this.props.openSignUp} className='clickLink'>here</span> to sign up for a new account</h3><button className='closeButton' onClick={this.props.closeSignIn}>x</button>
-          </div>
+      <div className='overlay'>
+        <div className='signInBox'>
+          <form onSubmit={this.handleSubmit.bind(this)} className='signInForm'>
+            <input type='email' ref={input => this.email = input} className='inputField' placeholder='email' />
+            <input type='password' ref={input => this.password = input} className='inputField' placeholder='password'/>
+            <button type='submit' className='logIn'>Log in</button>
+          </form>
+          <h3>Click <span onClick={this.props.openSignUp} className='clickLink'>here</span> to sign up for a new account</h3><button className='closeButton' onClick={this.props.closeSignIn}>x</button>
         </div>
       </div>
     )
