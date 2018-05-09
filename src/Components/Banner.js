@@ -8,7 +8,7 @@ import firebase from 'firebase'
 import fire from '../firebase'
 
 const database = fire.database()
-
+const tree = require('../Images/tree.ico')
 
 class Banner extends Component {
   constructor() {
@@ -81,10 +81,8 @@ class Banner extends Component {
   render() {
     return (
           <div className='navBarContainer'>
-            {this.state.authenticated
-              ? <button className='donationButton'>DONATE</button>
-              : []
-            }
+            <img src={tree} className='donationButton treeImage'></img>
+            <button className='donationButton'><h1>DONATE</h1></button>
             {this.state.loading
             ? <div className='spinner'>
               </div>

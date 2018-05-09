@@ -29,20 +29,26 @@
 }
 
 .donationButton {
-  position: absolute;
-  top: 80px;
+  position: fixed;
+  bottom: 30px;
   left: 30px;
-  background-color: white;
+  background: none;
   border:none;
   border-radius: 50%;
-  padding: 5px;
-  color: #ec4700;
   height:50px;
   width: 50px;
-  font-size: 9px;
-  border: 1px solid #965e5e
+  padding: 0
 }
 
+.donationButton h1 {
+  font-weight: bold;
+  font-size: 10px;
+  color: #ec4700;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 0;
+  width: 90%;
+  margin: auto
+}
 .donationButton:hover {
   cursor: pointer
 }
@@ -89,15 +95,16 @@
   animation: animateLine 0.2s linear forwards
 }
 
-.spinner {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
+.treeImage {
+  width: 50px;
+  height: 50px;
   background: none;
-  border-top: 1px solid white;
-  border-left: 1px solid white;
-  margin: 25px 65px;
-  animation: spinner 0.3s linear infinite
+  opacity: 1;
+  background-color: white;
+}
+
+.:hover {
+  background-color: white
 }
 
 @keyframes animateLine {
@@ -106,15 +113,5 @@
   }
   100% {
     width:100%;
-  }
-}
-
-@keyframes spinner {
-  0% {
-    transform: rotate(0deg)
-  }
-
-  100% {
-    transform: rotate(360deg)
   }
 }
