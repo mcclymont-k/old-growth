@@ -14,8 +14,9 @@ class Home extends Component {
   }
   componentDidMount() {
     window.onscroll = function(e){
+      let offSet = window.pageYOffset
       const titleGrab = document.getElementById('title')
-      e.pageY > 170
+      offSet > 139
       ? (
           titleGrab.style.position = 'fixed',
           titleGrab.style.fontSize = '50px',

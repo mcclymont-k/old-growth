@@ -8,6 +8,8 @@
 
 .signUpForm {
   text-align: center;
+  display: grid;
+  justify-items: center;
 }
 
 .signUpForm h2 {
