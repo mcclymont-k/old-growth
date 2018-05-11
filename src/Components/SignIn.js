@@ -10,7 +10,9 @@ class SignIn extends Component {
 
   constructor() {
     super()
-    this.state = {}
+    this.state = {
+      singInNotification: false
+    }
   }
 
   handleSubmit(e) {
@@ -23,7 +25,7 @@ class SignIn extends Component {
   }
 
   render() {
-    return(
+    return(  
       <div className='overlay'>
         <div className='signInBox'>
           <form onSubmit={this.handleSubmit.bind(this)} className='signInForm'>

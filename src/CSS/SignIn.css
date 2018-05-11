@@ -20,6 +20,10 @@
   right: 0
 }
 
+.signInContainer {
+  height: 100%;
+  width: 100%
+}
 .signInBox h3 {
   font-size: 8px;
   margin-top: 15px;

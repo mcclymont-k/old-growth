@@ -40,9 +40,8 @@
 }
 
 .bannerContainer {
-  width: 100vw;
+  width: 100%;
   display: grid;
-  border: 1px solid black;
   height: 500px;
   position: relative;
   align-items: center;

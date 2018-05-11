@@ -15,6 +15,7 @@ class Banner extends Component {
     super()
     this.state = {
       signIn: false,
+      signInNotification: false,
       signUp: false,
       signOutAlert: false,
       authenticated: false,
@@ -41,11 +42,13 @@ class Banner extends Component {
       let key = Object.keys(e.val())
       let currentUserData = e.val()[key[0]]
       this.setState({
+        signInNotification: true,
         authenticated: true,
         userData: currentUserData,
         loading: false
       })
       this.closeModal()
+      window.setTimeout(() => this.setState({signInNotification: false}), 2000)
     })
   }
 
@@ -112,22 +115,26 @@ class Banner extends Component {
                     </div>
               : <button className='signInButton' onClick={this.openSignIn.bind(this)}>Log in/Sign up</button>
             }
-        {this.state.signIn
-          ? <SignIn authenticate={this.authenticate.bind(this)} openSignUp={this.openSignUp.bind(this)} closeSignIn={this.closeModal.bind(this)}/>
-          : []
-        }
-        {this.state.signUp
-          ? <SignUp closeSignUp={this.closeModal.bind(this)} authenticate={this.authenticate.bind(this)}/>
-          : []
-        }
-        {this.state.signOutAlert
-          ? <div className='overlay'>
-              <div className='changeAlert' onClick={this.closeModal.bind(this)}>
-                You have succesfully signed out, please come again!
-              </div>
-            </div>
-          : []
-        }
+            {this.state.signIn
+              ? <SignIn authenticate={this.authenticate.bind(this)} openSignUp={this.openSignUp.bind(this)} closeSignIn={this.closeModal.bind(this)}/>
+              : []
+            }
+            {this.state.signUp
+              ? <SignUp closeSignUp={this.closeModal.bind(this)} authenticate={this.authenticate.bind(this)}/>
+              : []
+            }
+            {this.state.signOutAlert
+              ? <div className='overlay'>
+                  <div className='changeAlert' onClick={this.closeModal.bind(this)}>
+                    You have succesfully signed out, please come again!
+                  </div>
+                </div>
+              : []
+            }
+            {this.state.signInNotification
+              ? <div className='signInNotification'>signed in as {this.state.userData.firstName}</div>
+              : []
+            }
       </div>
     )
   }
