@@ -1,0 +1,26 @@
+.infoDiv {
+  border-bottom: 1px solid white;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  width:300px;
+  background-color: rgba(0,0,0,0.8);
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  color: white
+}
+
+.infoDiv2{
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  height: 30px;
+  width: 300px;
+  position:absolute;
+  opacity: 0;
+  background-color: rgba(0,0,0,0.8);
+  pointer-events: none;
+  color: white
+}

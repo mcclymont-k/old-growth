@@ -84,8 +84,18 @@ class Banner extends Component {
   render() {
     return (
           <div className='navBarContainer'>
-            <img src={tree} className='donationButton treeImage'></img>
-            <button className='donationButton'><h1>DONATE</h1></button>
+            {window.location.pathname === '/donate'
+              ? []
+              : <div className='donationContainer'>
+                  <img src={tree} className='donationButton treeImage'></img>
+                  <Link to='/donate' className='donationButton'><h1>DONATE</h1></Link>
+                </div>
+            }
+            {window.location.pathname !== '/'
+             ? <Link to='/' className='title'>old growTh</Link>
+             : []
+
+            }
             {this.state.loading
             ? <div className='spinner'>
               </div>
@@ -93,23 +103,23 @@ class Banner extends Component {
               ? this.state.userData.contributionLevel === '1'
                 ? <div className='contributionLevelNav'>
                     <div className='buttonBar'>
-                      <button className='contentButton'>News</button>
+                      <Link to='/news' className='contentButton'>News</Link>
                     </div>
                     <button className='signInButton' onClick={this.signOut.bind(this)}>Sign Out</button>
                   </div>
                 : this.state.userData.contributionLevel === '2'
                   ? <div className='contributionLevelNav'>
                       <div className='buttonBar'>
-                        <button className='contentButton'>News</button>
-                        <button className='contentButton'>Build</button>
+                        <Link to='/news' className='contentButton'>News</Link>
+                        <Link to='/build' className='contentButton'>Build</Link>
                       </div>
                       <button className='signInButton' onClick={this.signOut.bind(this)}>Sign Out</button>
                     </div>
                   : <div className='contributionLevelNav'>
                       <div className='buttonBar'>
-                        <button className='contentButton'>News</button>
-                        <button className='contentButton'>Build</button>
-                        <button className='contentButton'>Community</button>
+                        <Link to='/news' className='contentButton'>News</Link>
+                        <Link to='/build' className='contentButton'>Build</Link>
+                        <Link to='/community' className='contentButton'>Community</Link>
                       </div>
                       <button className='signInButton' onClick={this.signOut.bind(this)}>Sign Out</button>
                     </div>
@@ -132,7 +142,7 @@ class Banner extends Component {
               : []
             }
             {this.state.signInNotification
-              ? <div className='signInNotification'>signed in as {this.state.userData.firstName}</div>
+              ? <div className='signInNotification'>Signed in as {this.state.userData.firstName}</div>
               : []
             }
       </div>
