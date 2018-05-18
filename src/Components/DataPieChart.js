@@ -43,13 +43,13 @@ class DataPieChart extends Component {
 
   componentDidMount() {
     this.mainContainer = d3.select(this.refs.svgContainer)
-    this.mainContainer.append('text')
-      .attr('class', 'pieTitle')
-      .attr('y', 390)
-      .attr('x', 58.5)
-      .style('font-size', '10px')
-      .style('stroke', 'grey')
-      .text('Number of old growth forests identified in each country')
+    // this.mainContainer.append('div')
+    //   .attr('class', 'pieTitle')
+    //   .attr('y', 390)
+    //   .attr('x', 58.5)
+    //   .style('font-size', '10px')
+    //   .style('stroke', 'grey')
+    //   .text('Number of old growth forests identified in each country')
 
     let color = d3.scaleLinear()
       .domain([0, 6])
@@ -77,14 +77,14 @@ class DataPieChart extends Component {
           .duration(500)
           .style('opacity', 1)
           .style('left', d3.event.pageX + 30 + 'px')
-          .style('top', d3.event.pageY - 31 + 'px')
+          .style('top', d3.event.pageY - 471 + 'px')
           .text('Location: ' + targetData.place)
         infoDiv2.transition()
           .duration(500)
           .ease(d3.easeExp)
           .style('opacity', 1)
           .style('left', d3.event.pageX + 30 + 'px')
-          .style('top', d3.event.pageY + 'px')
+          .style('top', d3.event.pageY -440 + 'px')
           .text('Number of Old-growth forests: ' + targetData.total)
       })
       .on('mouseout', (d, i) => {
@@ -107,8 +107,9 @@ class DataPieChart extends Component {
 
   render() {
     return(
-      <div>
+      <div className='pieChartContainer'>
         <svg height='400px' width='400px' ref='svgContainer' className='dataPieChart'></svg>
+        <div className='pieTitle'>Number of old growth forests identified in each country</div>
         <div className='infoDiv'></div>
         <div className='infoDiv2'></div>
       </div>
