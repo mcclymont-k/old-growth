@@ -1,0 +1,35 @@
+.treeChartContainer {
+  position: relative;
+  display: grid;
+  justify-items: flex-end;
+  width: 90%;
+  margin: auto;
+
+}
+
+.treeCover {
+  position: absolute;
+  border: 1px solid black;
+  right: 0;
+  width: 350px;
+  height: 700px
+}
+
+.treeImage {
+  height: 40px;
+  width: 40px;
+  border: 1px solid black;
+  border-radius: 50%;
+  position: absolute;
+  transition: 0.3s
+}
+
+.treeImage:hover {
+  transform: scale(5);
+  object-fit: cover;
+}
+
+.bat {
+  right: 0;
+  top: 600
+}

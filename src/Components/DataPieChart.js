@@ -43,14 +43,6 @@ class DataPieChart extends Component {
 
   componentDidMount() {
     this.mainContainer = d3.select(this.refs.svgContainer)
-    // this.mainContainer.append('div')
-    //   .attr('class', 'pieTitle')
-    //   .attr('y', 390)
-    //   .attr('x', 58.5)
-    //   .style('font-size', '10px')
-    //   .style('stroke', 'grey')
-    //   .text('Number of old growth forests identified in each country')
-
     let color = d3.scaleLinear()
       .domain([0, 6])
       .range(['#C8E500', '#2A782A'])

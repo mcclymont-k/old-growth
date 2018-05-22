@@ -3,6 +3,7 @@ import * as firebase from 'firebase'
 import fire from '../firebase'
 import '../CSS/SignIn.css'
 import '../App.css';
+import { MyContext } from './MyProvider'
 const database = fire.database()
 
 
@@ -25,7 +26,7 @@ class SignIn extends Component {
   }
 
   render() {
-    return(  
+    return(
       <div className='overlay'>
         <div className='signInBox'>
           <form onSubmit={this.handleSubmit.bind(this)} className='signInForm'>
@@ -33,8 +34,12 @@ class SignIn extends Component {
             <input type='password' ref={input => this.password = input} className='inputField' placeholder='password'/>
             <button type='submit' className='logIn'>Log in</button>
           </form>
-          <h3>Click <span onClick={this.props.openSignUp} className='clickLink'>here</span> to sign up for a new account</h3><button className='closeButton' onClick={this.props.closeSignIn}>x</button>
+          <h3>Click<span onClick={this.props.openSignUp} className='clickLink'>here</span>to sign up for a new account</h3>
+          <button className='closeButton' onClick={this.props.closeSignIn}>x</button>
         </div>
+        <MyContext.Consumer>
+          {(context) => <p>Im inside the {context.state.name}</p>}
+        </MyContext.Consumer>
       </div>
     )
   }
