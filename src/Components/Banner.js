@@ -24,7 +24,6 @@ class Banner extends Component {
     }
   }
   componentDidMount() {
-
     let listener = firebase.auth().onAuthStateChanged(user => {
       if(user) {
         this.authenticate(user.email)
@@ -83,14 +82,14 @@ class Banner extends Component {
   render() {
     return (
       <div className='navBarContainer'>
-        {window.location.pathname === '/donate'
+        {this.props.location.pathname === '/donate'
           ? []
           : <div className='donationContainer'>
               <img src={tree} className='donationButton donateImage'></img>
               <Link to='/donate' className='donationButton'><h1>DONATE</h1></Link>
             </div>
         }
-        {window.location.pathname !== '/'
+        {this.props.location.pathname !== '/'
          ? <Link to='/' className='title'>old growTh</Link>
          : []
 

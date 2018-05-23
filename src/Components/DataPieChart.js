@@ -54,16 +54,17 @@ class DataPieChart extends Component {
       .data(pie)
       .enter().append('g')
       .attr('class', 'arc')
-      .attr('transform', 'translate(200, 200)')
+      .attr('transform', 'translate(250, 250)')
     g.append('path')
       .attr('d', arc)
       .attr('transform', 'scale(0.1)')
       .style('fill', (d, i) => color(i))
-      .style('stroke', 'white')
       .on('mouseover', (d, i) => {
         let target = d3.select(d3.event.target)
         let targetData = target.data()[0].data
-        target.transition().attr('transform', 'scale(1.04)')
+        target.transition()
+          .attr('transform', 'scale(1.04)')
+          .style('stroke', 'white')
         infoDiv.transition()
           .ease(d3.easeExp)
           .duration(500)
@@ -77,7 +78,9 @@ class DataPieChart extends Component {
       })
       .on('mouseout', (d, i) => {
         let target = d3.select(d3.event.target)
-        target.transition().attr('transform', 'scale(1)')
+        target.transition()
+          .attr('transform', 'scale(1)')
+          .style('stroke', '')
         infoDiv.transition().style('opacity', 0)
         infoDiv2.transition().style('opacity', 0)
       })
@@ -96,7 +99,7 @@ class DataPieChart extends Component {
   render() {
     return(
       <div className='pieChartContainer'>
-        <svg height='400px' width='400px' ref='svgContainer' className='dataPieChart'></svg>
+        <svg height='500px' width='500px' ref='svgContainer' className='dataPieChart'></svg>
         <div className='pieTitle'>Number of old growth forests identified in each country</div>
         <div className='infoDiv'></div>
         <div className='infoDiv2'></div>

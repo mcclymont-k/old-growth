@@ -10,7 +10,7 @@ class Main extends Component {
     return(
       <Router>
         <div className='mainContainer'>
-          <Banner {...this.props}/>
+          <Route render={(props) => <Banner {...this.props} {...props}/>} />
           <Route exact path='/' render={(props) => <Home {...this.props} {...props}/>}/>
           <Route exact path='/donate' render={(props) => <Donate {...this.props} />}/>
         </div>
