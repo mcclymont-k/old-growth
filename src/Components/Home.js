@@ -1,11 +1,8 @@
 import React, {Component} from 'react'
-import Banner from './Banner'
 import DataPieChart from './DataPieChart'
 import TreeChart from './TreeChart'
-import firebase from 'firebase'
 import '../App.css'
 
-const tree = require('../Images/tree.ico')
 const forest = require('../Images/forest.jpg')
 
 class Home extends Component {

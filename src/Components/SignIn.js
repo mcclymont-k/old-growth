@@ -3,7 +3,6 @@ import * as firebase from 'firebase'
 import fire from '../firebase'
 import '../CSS/SignIn.css'
 import '../App.css';
-const database = fire.database()
 
 
 class SignIn extends Component {

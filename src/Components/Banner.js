@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import '../CSS/Banner.css'
 import '../App.css';
-import {Link, Route, HashRouter as Router} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import SignIn from './SignIn'
 import SignUp from './SignUp'
 import firebase from 'firebase'
