@@ -77,6 +77,7 @@ class SignUp extends Component {
             ? <div className='changeAlert'>
                 Thank you {this.state.userData.firstName}, you can now sign in using your new login details
               </div>
+
             // Check for contribution level
             : this.state.contributionAlert
               ? <form className='contributionContainer' onSubmit={this.handleContribution.bind(this)}>

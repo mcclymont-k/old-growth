@@ -85,13 +85,12 @@
 
 .donationButton h1 {
   font-weight: bold;
-  font-size: 9px;
+  font-size: 8.5px;
   color: #ec4700;
   background-color: rgba(255, 255, 255, 0.9);
-  padding: 0;
   width: 90%;
   margin: auto;
-  text-align: center
+  text-align: center;
 }
 
 .donationButton:hover {
@@ -151,7 +150,7 @@
   animation: animateLine 0.2s linear forwards
 }
 
-.treeImage {
+.donateImage {
   width: 50px;
   height: 50px;
   background: none;

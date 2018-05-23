@@ -3,7 +3,6 @@ import * as firebase from 'firebase'
 import fire from '../firebase'
 import '../CSS/SignIn.css'
 import '../App.css';
-import { MyContext } from './MyProvider'
 const database = fire.database()
 
 
@@ -37,9 +36,6 @@ class SignIn extends Component {
           <h3>Click<span onClick={this.props.openSignUp} className='clickLink'>here</span>to sign up for a new account</h3>
           <button className='closeButton' onClick={this.props.closeSignIn}>x</button>
         </div>
-        <MyContext.Consumer>
-          {(context) => <p>Im inside the {context.state.name}</p>}
-        </MyContext.Consumer>
       </div>
     )
   }

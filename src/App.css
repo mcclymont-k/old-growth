@@ -54,6 +54,7 @@
   font-family: 'Amatic SC', cursive;
   display: grid;
   justify-items: center;
+  width: 800px
 }
 
 .titleContainer h1 {

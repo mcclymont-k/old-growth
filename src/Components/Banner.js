@@ -24,7 +24,6 @@ class Banner extends Component {
       loading: true
     }
   }
-// not working beacuse database updates after
   componentDidMount() {
     let listener = firebase.auth().onAuthStateChanged(user => {
       if(user) {
@@ -36,7 +35,7 @@ class Banner extends Component {
     })
   }
 
-  authenticate(email) {
+  authenticate(email, consumer) {
     let usersRef = database.ref('users')
     usersRef.orderByChild('email').equalTo(email).on('value', e =>  {
       let key = Object.keys(e.val())
@@ -83,69 +82,69 @@ class Banner extends Component {
 
   render() {
     return (
-          <div className='navBarContainer'>
-            {window.location.pathname === '/donate'
-              ? []
-              : <div className='donationContainer'>
-                  <img src={tree} className='donationButton treeImage'></img>
-                  <Link to='/donate' className='donationButton'><h1>DONATE</h1></Link>
-                </div>
-            }
-            {window.location.pathname !== '/'
-             ? <Link to='/' className='title'>old growTh</Link>
-             : []
+      <div className='navBarContainer'>
+        {window.location.pathname === '/donate'
+          ? []
+          : <div className='donationContainer'>
+              <img src={tree} className='donationButton donateImage'></img>
+              <Link to='/donate' className='donationButton'><h1>DONATE</h1></Link>
+            </div>
+        }
+        {window.location.pathname !== '/'
+         ? <Link to='/' className='title'>old growTh</Link>
+         : []
 
-            }
-            {this.state.loading
-            ? <div className='spinner'>
-              </div>
-            : this.state.authenticated
-              ? this.state.userData.contributionLevel === '1'
-                ? <div className='contributionLevelNav'>
-                    <div className='buttonBar'>
-                      <Link to='/news' className='contentButton'>News</Link>
-                    </div>
-                    <button className='signInButton' onClick={this.signOut.bind(this)}>Sign Out</button>
-                  </div>
-                : this.state.userData.contributionLevel === '2'
-                  ? <div className='contributionLevelNav'>
-                      <div className='buttonBar'>
-                        <Link to='/news' className='contentButton'>News</Link>
-                        <Link to='/build' className='contentButton'>Build</Link>
-                      </div>
-                      <button className='signInButton' onClick={this.signOut.bind(this)}>Sign Out</button>
-                    </div>
-                  : <div className='contributionLevelNav'>
-                      <div className='buttonBar'>
-                        <Link to='/news' className='contentButton'>News</Link>
-                        <Link to='/build' className='contentButton'>Build</Link>
-                        <Link to='/community' className='contentButton'>Community</Link>
-                      </div>
-                      <button className='signInButton' onClick={this.signOut.bind(this)}>Sign Out</button>
-                    </div>
-              : <button className='signInButton' onClick={this.openSignIn.bind(this)}>Log in/Sign up</button>
-            }
-            {this.state.signIn
-              ? <SignIn authenticate={this.authenticate.bind(this)} openSignUp={this.openSignUp.bind(this)} closeSignIn={this.closeModal.bind(this)}/>
-              : []
-            }
-            {this.state.signUp
-              ? <SignUp closeSignUp={this.closeModal.bind(this)} authenticate={this.authenticate.bind(this)}/>
-              : []
-            }
-            {this.state.signOutAlert
-              ? <div className='overlay'>
-                  <div className='changeAlert' onClick={this.closeModal.bind(this)}>
-                    You have succesfully signed out, please come again!
-                  </div>
+        }
+        {this.state.loading
+        ? <div className='spinner'>
+          </div>
+        : this.state.authenticated
+          ? this.state.userData.contributionLevel === '1'
+            ? <div className='contributionLevelNav'>
+                <div className='buttonBar'>
+                  <Link to='/news' className='contentButton'>News</Link>
                 </div>
-              : []
-            }
-            {this.state.signInNotification
-              ? <div className='signInNotification'>Signed in as {this.state.userData.firstName}</div>
-              : []
-            }
-      </div>
+                <button className='signInButton' onClick={this.signOut.bind(this)}>Sign Out</button>
+              </div>
+            : this.state.userData.contributionLevel === '2'
+              ? <div className='contributionLevelNav'>
+                  <div className='buttonBar'>
+                    <Link to='/news' className='contentButton'>News</Link>
+                    <Link to='/build' className='contentButton'>Build</Link>
+                  </div>
+                  <button className='signInButton' onClick={this.signOut.bind(this)}>Sign Out</button>
+                </div>
+              : <div className='contributionLevelNav'>
+                  <div className='buttonBar'>
+                    <Link to='/news' className='contentButton'>News</Link>
+                    <Link to='/build' className='contentButton'>Build</Link>
+                    <Link to='/community' className='contentButton'>Community</Link>
+                  </div>
+                  <button className='signInButton' onClick={this.signOut.bind(this)}>Sign Out</button>
+                </div>
+          : <button className='signInButton' onClick={this.openSignIn.bind(this)}>Log in/Sign up</button>
+        }
+        {this.state.signIn
+          ? <SignIn authenticate={this.authenticate.bind(this)} openSignUp={this.openSignUp.bind(this)} closeSignIn={this.closeModal.bind(this)}/>
+          : []
+        }
+        {this.state.signUp
+          ? <SignUp closeSignUp={this.closeModal.bind(this)} authenticate={this.authenticate.bind(this)}/>
+          : []
+        }
+        {this.state.signOutAlert
+          ? <div className='overlay'>
+              <div className='changeAlert' onClick={this.closeModal.bind(this)}>
+                You have succesfully signed out, please come again!
+              </div>
+            </div>
+          : []
+        }
+        {this.state.signInNotification
+          ? <div className='signInNotification'>Signed in as {this.state.userData.firstName}</div>
+          : []
+        }
+    </div>
     )
   }
 }

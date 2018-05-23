@@ -4,8 +4,6 @@ import DataPieChart from './DataPieChart'
 import TreeChart from './TreeChart'
 import firebase from 'firebase'
 import '../App.css'
-import { MyContext } from './MyProvider'
-
 
 const tree = require('../Images/tree.ico')
 const forest = require('../Images/forest.jpg')
@@ -20,6 +18,8 @@ class Home extends Component {
   componentDidMount() {
     const titleGrab = document.getElementById('title')
     let titleOffSet = titleGrab.offsetTop
+
+    // Manages the title position on scroll
     window.onscroll = function(e){
       let offSet = window.pageYOffset
       offSet
@@ -29,7 +29,7 @@ class Home extends Component {
             titleGrab.style.fontSize = '50px',
             titleGrab.style.color = '#ec4700',
             titleGrab.style.fontWeight= 'normal',
-            titleGrab.style.width = '70%',
+            titleGrab.style.width = '20%',
             titleGrab.style.margin = 'auto',
             titleGrab.style.zIndex= 1
           )
@@ -38,7 +38,8 @@ class Home extends Component {
             titleGrab.style.fontSize = '60px',
             titleGrab.style.color = 'white',
             titleGrab.style.fontWeight = 'bold',
-            titleGrab.style.width = '100%'
+            titleGrab.style.width = '100%',
+            titleGrab.style.zIndex = '0'
           )
       : []
     }
