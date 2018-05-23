@@ -5,12 +5,37 @@ import rootReducer from './Reducers/index'
 
 
 const defaultState = {
-  user: {
-    name: 'Kieran',
-    age: 30,
-    email: 'asdas@asdasd.com',
-    contributionLevel: 3
-  }
+  user: {},
+  forestData: [
+      {
+        place: 'Russia',
+        total: 3
+      },
+      {
+        place: 'Norway',
+        total: 3
+      },
+      {
+        place: 'France',
+        total: 12
+      },
+      {
+        place: 'United Kingdom',
+        total: 12
+      },
+      {
+        place: 'Nova Scotia',
+        total: 14
+      },
+      {
+        place: 'Australia',
+        total: 17
+      },
+      {
+        place: 'U.S.A',
+        total: 172
+      }
+    ]
 }
 
 const store = createStore(rootReducer, defaultState)

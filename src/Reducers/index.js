@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
 import { routerReducer } from 'react-router-redux'
 
-import { reducer } from './reducer'
+import { updateUser } from './reducer'
 
-const rootReducer = combineReducers({user: reducer,  routing: routerReducer})
+const rootReducer = combineReducers({user: updateUser, routing: routerReducer})
 
 export default rootReducer

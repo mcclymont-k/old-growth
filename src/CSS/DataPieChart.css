@@ -4,12 +4,12 @@
   align-items: center;
   justify-content: center;
   height: 30px;
-  width:300px;
-  background-color: rgba(0,0,0,0.8);
+  width:200px;
   position: absolute;
   opacity: 0;
-  pointer-events: none;
-  color: white
+  pointer-events: none;;
+  top: 150px;
+  left: 100px
 }
 
 .infoDiv2{
@@ -17,12 +17,13 @@
   align-items: center;
   justify-items: center;
   height: 30px;
-  width: 300px;
-  position:absolute;
-  opacity: 0;
-  background-color: rgba(0,0,0,0.8);
+  width: 200px;
+  font-size: 10px;
+  position: absolute;
+  opacity: 0;;
   pointer-events: none;
-  color: white
+  bottom: 180px;
+  left: 100px
 }
 
 .pieTitle{

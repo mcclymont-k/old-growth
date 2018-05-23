@@ -33,7 +33,7 @@ class DataPieChart extends Component {
           total: 17
         },
         {
-          place: 'US',
+          place: 'U.S.A',
           total: 172
         }
       ]
@@ -46,7 +46,7 @@ class DataPieChart extends Component {
     let color = d3.scaleLinear()
       .domain([0, 6])
       .range(['#C8E500', '#2A782A'])
-    let arc =d3.arc().outerRadius(150).innerRadius(100)
+    let arc =d3.arc().outerRadius(175).innerRadius(125)
     let  pie = d3.pie().value(d => d.total)(this.state.forests)
     let infoDiv = d3.select('.infoDiv')
     let infoDiv2 = d3.select('.infoDiv2')
@@ -68,15 +68,11 @@ class DataPieChart extends Component {
           .ease(d3.easeExp)
           .duration(500)
           .style('opacity', 1)
-          .style('left', d3.event.pageX + 30 + 'px')
-          .style('top', d3.event.pageY - 471 + 'px')
-          .text('Location: ' + targetData.place)
+          .text(targetData.place)
         infoDiv2.transition()
           .duration(500)
           .ease(d3.easeExp)
           .style('opacity', 1)
-          .style('left', d3.event.pageX + 30 + 'px')
-          .style('top', d3.event.pageY -440 + 'px')
           .text('Number of Old-growth forests: ' + targetData.total)
       })
       .on('mouseout', (d, i) => {

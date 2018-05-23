@@ -4,8 +4,10 @@ import * as actionCreators from '../Actions/actionCreators'
 import Main from './Main'
 
 function mapStateToProps(state) {
+  console.log(state)
   return {
-    user: state.user
+    user: state.user,
+    forestData: state.forestData
   }
 }
 

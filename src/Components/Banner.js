@@ -19,12 +19,12 @@ class Banner extends Component {
       signUp: false,
       signOutAlert: false,
       authenticated: false,
-      userData: {},
       checkAuth: true,
       loading: true
     }
   }
   componentDidMount() {
+
     let listener = firebase.auth().onAuthStateChanged(user => {
       if(user) {
         this.authenticate(user.email)
@@ -35,15 +35,15 @@ class Banner extends Component {
     })
   }
 
-  authenticate(email, consumer) {
+  authenticate(email) {
     let usersRef = database.ref('users')
     usersRef.orderByChild('email').equalTo(email).on('value', e =>  {
       let key = Object.keys(e.val())
       let currentUserData = e.val()[key[0]]
+      this.props.updateUserData(0, currentUserData)
       this.setState({
         signInNotification: true,
         authenticated: true,
-        userData: currentUserData,
         loading: false
       })
       this.closeModal()
@@ -74,8 +74,8 @@ class Banner extends Component {
         this.setState({
           authenticated: false,
           signOutAlert: true,
-          userData: {}
         })
+        this.props.updateUserData(0, {})
       })
       .catch(error => console.log(error))
   }
@@ -99,14 +99,14 @@ class Banner extends Component {
         ? <div className='spinner'>
           </div>
         : this.state.authenticated
-          ? this.state.userData.contributionLevel === '1'
+          ? this.props.user.contributionLevel === '1'
             ? <div className='contributionLevelNav'>
                 <div className='buttonBar'>
                   <Link to='/news' className='contentButton'>News</Link>
                 </div>
                 <button className='signInButton' onClick={this.signOut.bind(this)}>Sign Out</button>
               </div>
-            : this.state.userData.contributionLevel === '2'
+            : this.props.user.contributionLevel === '2'
               ? <div className='contributionLevelNav'>
                   <div className='buttonBar'>
                     <Link to='/news' className='contentButton'>News</Link>
@@ -141,7 +141,7 @@ class Banner extends Component {
           : []
         }
         {this.state.signInNotification
-          ? <div className='signInNotification'>Signed in as {this.state.userData.firstName}</div>
+          ? <div className='signInNotification'>Signed in as {this.props.user.firstName + ' ' + this.props.user.lastName}</div>
           : []
         }
     </div>

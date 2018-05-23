@@ -1,6 +1,8 @@
-export function increment(index) {
+export function updateUserData(index, data) {
+  console.log(data)
   return {
-    type: 'INCREMENT_LIKES',
-    index
+    type: 'UPDATE_USER_DATA',
+    index,
+    data
   }
 }
