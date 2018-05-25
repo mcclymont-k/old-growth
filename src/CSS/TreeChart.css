@@ -4,34 +4,58 @@
   justify-items: flex-start;
   width: 80%;
   margin: auto;
-  transform: rotate(180deg);
-  margin-bottom: 100px
+  margin-bottom: 100px;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-items: center
 }
 
 .treeCover {
   position: absolute;
-  left: 0;
+  top: 0;
   width: 400px;
   height: 400px
 }
 
-.treeImage {
+.treeVisualContainer {
+  position: relative
+}
+
+.treeImageContainer {
   height: 40px;
   width: 40px;
-  border: 1px solid black;
   border-radius: 50%;
   position: absolute;
   transition: 0.3s;
   object-fit: cover;
-  transform: rotate(180deg)
+  overflow: hidden
 }
 
-.treeImage:hover {
-  transform: scale(5) rotate(180deg);
+.treeImage {
+  height: 100%;
+  width:100%;
+  object-fit: cover
+}
+
+.treeImageContainer:hover {
+  transform: scale(5);
   z-index: 2;
 }
 
-.bat {
+.treeImageContainer p {
+  text-transform: capitalize;
+  position: absolute;
+  bottom: 0;
+  font-size: 5px;
+  color: white;
+  text-align: center;
+  left: 0;
   right: 0;
-  top: 600
+  background-color: black;
+  margin: 0;
+  padding-bottom: 1px
+}
+
+.animalInfoBox {
+  border: 1px solid orange
 }

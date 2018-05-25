@@ -52,13 +52,41 @@ class TreeChart extends Component {
           }
         ]
       },
-      animalList: ['bat', 'squirrel', 'bear', 'mouse', 'cat', 'rabbit', 'apex']
+      animalList: [
+        {
+          name: 'bat',
+          description: 'This animal is really nice and deserves more respect'
+        },
+        {
+          name: 'squirrel',
+          description: 'This animal is really nice and deserves more respect'
+        },
+        {
+          name: 'bear',
+          description: 'This animal is really nice and deserves more respect'
+        },
+        {
+          name: 'mouse',
+          description: 'This animal is really nice and deserves more respect'
+        },
+        {
+          name: 'cat',
+          description: 'This animal is really nice and deserves more respect'
+        },
+        {
+          name: 'rabbit',
+          description: 'This animal is really nice and deserves more respect'
+        },
+        {
+          name: 'apex',
+          description: 'This animal is really nice and deserves more respect'
+        }
+      ]
     }
   }
 
   componentDidMount() {
     let treeChart = d3.select(this.refs.treeChart)
-
     let treeMap = d3.tree().size([400, 400])
     let nodes = d3.hierarchy(this.state.animalData)
     nodes = treeMap(nodes)
@@ -85,26 +113,43 @@ class TreeChart extends Component {
           .attr('transform', (d) => 'translate(' + (d.x - 20) + ',' + (d.y-20) + ')')
   }
 
+  handleHover(e) {
+    const animalTarget = this.state.animalList[e.target.id]
+    const infoBox = document.querySelector('.animalInfoBox')
+    infoBox.childNodes[0].innerHTML = animalTarget.name
+    infoBox.childNodes[1].innerHTML = animalTarget.description
+  }
+
   render() {
     return (
       <div className='treeChartContainer'>
-        <svg height='400px' width='400px' ref='treeChart' />
-        <div className='treeCover'>
-          {
-        // Map over the animal list and append images on the appropriate tree node
-            this.state.animalList.map(animal => {
-              let x = 0
-              let y = 0
-              let nodeName = document.querySelector('.' + animal + 'Node')
-              if (nodeName) {
-                x = document.querySelector('.' + animal + 'Node').__data__.x -20
-                y = document.querySelector('.' + animal + 'Node').__data__.y -20
-                console.log(animal)
-
-                return <img src={eval(animal)} className='treeImage' style={{top: y, left: x}} />
-              }
-            })
-          }
+        <div className='treeAnimalInfoContainer'>
+          <div className='animalInfoBox'>
+            <h1>Animal</h1>
+            <h2>descrioption</h2>
+          </div>
+        </div>
+        <div className='treeVisualContainer'>
+          <svg height='400px' width='400px' ref='treeChart' />
+          <div className='treeCover'>
+            {
+          // Map over the animal list and append images on the appropriate tree node
+              this.state.animalList.map((animal, index) => {
+                let x = 0
+                let y = 0
+                let nodeName = document.querySelector('.' + animal.name + 'Node')
+                if (nodeName) {
+                  x = document.querySelector('.' + animal.name + 'Node').__data__.x -20
+                  y = document.querySelector('.' + animal.name + 'Node').__data__.y -20
+                  return (
+                    <div style={{top: y, left: x}} className="treeImageContainer" key={index} >
+                      <img src={eval(animal.name)} className='treeImage' ref='treeImage' id={index} onMouseOver={(e) => this.handleHover(e)}/>
+                    </div>
+                  )
+                }
+              })
+            }
+          </div>
         </div>
 
       </div>

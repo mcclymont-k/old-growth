@@ -40,12 +40,10 @@ class SignUp extends Component {
   }
 
   handleContribution(e) {
-    console.log(this.state.contributionLevel)
     e.preventDefault()
     const usersRef = database.ref('users')
     let userData = this.state.userData
     userData.contributionLevel = this.state.contributionLevel
-    console.log(userData)
     usersRef.push(userData)
     this.props.authenticate(this.state.userData.email)
     this.setState({
@@ -65,7 +63,6 @@ class SignUp extends Component {
       contributionLevel: e.target.value
     })
     this.setState(object)
-    console.log(object)
   }
 
 

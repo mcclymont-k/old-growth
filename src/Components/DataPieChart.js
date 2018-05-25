@@ -17,11 +17,11 @@ class DataPieChart extends Component {
           total: 3
         },
         {
-          place: 'France',
+          place: 'United Kingdom',
           total: 12
         },
         {
-          place: 'United Kingdom',
+          place: 'France',
           total: 12
         },
         {

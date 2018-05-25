@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import * as firebase from 'firebase'
-import fire from '../firebase'
 import '../CSS/SignIn.css'
 import '../App.css';
 
