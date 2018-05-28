@@ -42,4 +42,17 @@
 .pieChartContainer {
   position: relative;
   margin-bottom: 100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 70%;
+  margin: 100px auto
+}
+
+.pieChartInformationBox {
+  border: 1px solid black;
+  padding: 10px
+}
+
+.pieChartInformationBox h1 {
+  text-align: center
 }

@@ -89,7 +89,7 @@ class Banner extends Component {
               <Link to='/donate' className='donationButton'><h1>DONATE</h1></Link>
             </div>
         }
-        {this.props.location.pathnametart !== '/'
+        {this.props.location.pathname !== '/'
          ? <Link to='/' className='title'>old growTh</Link>
          : []
 

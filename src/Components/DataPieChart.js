@@ -100,6 +100,10 @@ class DataPieChart extends Component {
     return(
       <div className='pieChartContainer'>
         <svg height='500px' width='500px' ref='svgContainer' className='dataPieChart'></svg>
+        <div className='pieChartInformationBox'>
+          <h1>Old growth forests</h1>
+          <h2>They are only a few of them, they provide essential habitats, they protect the environment ....</h2>
+        </div>
         <div className='pieTitle'>Number of old growth forests identified in each country</div>
         <div className='infoDiv'></div>
         <div className='infoDiv2'></div>

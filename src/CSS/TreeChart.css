@@ -42,27 +42,21 @@
   z-index: 2;
 }
 
-.treeImageContainer p {
-  text-transform: capitalize;
-  position: absolute;
-  bottom: 0;
-  font-size: 5px;
-  color: white;
-  text-align: center;
-  left: 0;
-  right: 0;
-  background-color: black;
-  margin: 0;
-  padding-bottom: 1px
-}
-
 .animalInfoBox {
   width: 300px;
   border: 1px solid orange;
   display: grid;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 40px 1fr;
   justify-items: center;
   padding: 10px;
   text-transform: capitalize;
   margin: none;
+}
+
+.animalInfoBox h1 {
+  margin: 0;
+}
+
+.animalInfoBox h2 {
+  font-size: 12px
 }
