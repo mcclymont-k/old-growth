@@ -57,5 +57,12 @@
 }
 
 .animalInfoBox {
-  border: 1px solid orange
+  width: 300px;
+  border: 1px solid orange;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  justify-items: center;
+  padding: 10px;
+  text-transform: capitalize;
+  margin: none;
 }

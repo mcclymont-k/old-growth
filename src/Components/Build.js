@@ -13,7 +13,6 @@ class Build extends Component {
 
   expandInfo(e) {
     const currentTarget = e.target.id
-    console.log(e.target.nextElementSibling.style.maxHeight)
     e.target.nextElementSibling.style.maxHeight === '4000px'
     ? e.target.nextElementSibling.style.maxHeight = null
     : e.target.nextElementSibling.style.maxHeight = '4000px'

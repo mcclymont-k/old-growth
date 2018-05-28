@@ -31,7 +31,7 @@ class SignIn extends Component {
             <input type='password' ref={input => this.password = input} className='inputField' placeholder='password'/>
             <button type='submit' className='logIn'>Log in</button>
           </form>
-          <h3>Click<span onClick={this.props.openSignUp} className='clickLink'>here</span>to sign up for a new account</h3>
+          <h3>Click<span onClick={this.props.openSignUp} className='clickLink'> here </span>to sign up for a new account</h3>
           <button className='closeButton' onClick={this.props.closeSignIn}>x</button>
         </div>
       </div>

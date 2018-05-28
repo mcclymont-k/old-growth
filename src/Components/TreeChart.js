@@ -14,6 +14,7 @@ class TreeChart extends Component {
   constructor() {
     super()
     this.state = {
+      mounted: false,
       animalData : {
         animal: 'apex',
         image: this.bat,
@@ -55,37 +56,38 @@ class TreeChart extends Component {
       animalList: [
         {
           name: 'bat',
-          description: 'This animal is really nice and deserves more respect'
+          description: 'Information about bats'
         },
         {
           name: 'squirrel',
-          description: 'This animal is really nice and deserves more respect'
+          description: 'Information about squirrels'
         },
         {
           name: 'bear',
-          description: 'This animal is really nice and deserves more respect'
+          description: 'Information about bears'
         },
         {
           name: 'mouse',
-          description: 'This animal is really nice and deserves more respect'
+          description: 'Information about mice'
         },
         {
           name: 'cat',
-          description: 'This animal is really nice and deserves more respect'
+          description: 'Information about cats'
         },
         {
           name: 'rabbit',
-          description: 'This animal is really nice and deserves more respect'
+          description: 'Information about rabbits'
         },
         {
           name: 'apex',
-          description: 'This animal is really nice and deserves more respect'
+          description: 'Information about apex predators'
         }
       ]
     }
   }
 
   componentDidMount() {
+
     let treeChart = d3.select(this.refs.treeChart)
     let treeMap = d3.tree().size([400, 400])
     let nodes = d3.hierarchy(this.state.animalData)
@@ -111,6 +113,29 @@ class TreeChart extends Component {
           .attr('r', 20)
           .attr('class', (d) => d.data.animal + 'Node')
           .attr('transform', (d) => 'translate(' + (d.x - 20) + ',' + (d.y-20) + ')')
+
+    this.setState({mounted: true})
+  }
+  componentDidUpdate() {
+
+  }
+
+  renderAnimalImages() {
+    this.state.animalList.map((animal, index) => {
+      let x = 0
+      let y = 0
+      let nodeName = document.querySelector('.' + animal.name + 'Node')
+      if (nodeName) {
+        x = document.querySelector('.' + animal.name + 'Node').__data__.x -20
+        y = document.querySelector('.' + animal.name + 'Node').__data__.y -20
+        return (
+          <div style={{top: y, left: x}} className="treeImageContainer" key={index} >
+            <img src={eval(animal.name)} className='treeImage' ref='treeImage' id={index} onMouseOver={(e) => this.handleHover(e)}/>
+          </div>
+        )
+
+      } else { return }
+    })
   }
 
   handleHover(e) {
@@ -146,7 +171,8 @@ class TreeChart extends Component {
                       <img src={eval(animal.name)} className='treeImage' ref='treeImage' id={index} onMouseOver={(e) => this.handleHover(e)}/>
                     </div>
                   )
-                }
+
+                } else { return }
               })
             }
           </div>
