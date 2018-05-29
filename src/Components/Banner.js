@@ -85,7 +85,7 @@ class Banner extends Component {
         {this.props.location.pathname === '/donate'
           ? []
           : <div className='donationContainer'>
-              <img src={tree} className='donationButton donateImage'></img>
+              <img src={tree} className='donationButton donateImage' alt='not available'></img>
               <Link to='/donate' className='donationButton'><h1>DONATE</h1></Link>
             </div>
         }

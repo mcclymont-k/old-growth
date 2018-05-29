@@ -56,7 +56,7 @@ class TreeChart extends Component {
       animalList: [
         {
           name: 'bat',
-          description: 'Information about bats'
+          description: 'Information about bats,Information about bats,Information about bats,Information about bats,Information about bats,Information about bats, Information about bats, Information about bats, Information about bats'
         },
         {
           name: 'squirrel',
@@ -130,7 +130,7 @@ class TreeChart extends Component {
         y = document.querySelector('.' + animal.name + 'Node').__data__.y -20
         return (
           <div style={{top: y, left: x}} className="treeImageContainer" key={index} >
-            <img src={eval(animal.name)} className='treeImage' ref='treeImage' id={index} onMouseOver={(e) => this.handleHover(e)}/>
+            <img src={eval(animal.name)} className='treeImage' alt='not available' ref='treeImage' id={index} onMouseOver={(e) => this.handleHover(e)}/>
           </div>
         )
 
@@ -168,7 +168,7 @@ class TreeChart extends Component {
                   y = document.querySelector('.' + animal.name + 'Node').__data__.y -20
                   return (
                     <div style={{top: y, left: x}} className="treeImageContainer" key={index} >
-                      <img src={eval(animal.name)} className='treeImage' ref='treeImage' id={index} onMouseOver={(e) => this.handleHover(e)}/>
+                      <img src={eval(animal.name)} className='treeImage' alt='not available' ref='treeImage' id={index} onMouseOver={(e) => this.handleHover(e)}/>
                     </div>
                   )
 

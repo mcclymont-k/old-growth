@@ -1,56 +1,70 @@
 .buildContainer {
   display: grid;
   width: 70%;
-  grid-template-rows: repeat(4, 60px);
   margin: auto;
   padding-top: 140px;
-  grid-gap: 10px
+  grid-gap: 5px;
+  height: 100%;
+  padding-bottom: 140px
 }
 
 .forestInfoBox {
-  border: 1px solid black;
   display: grid;
   grid-template-rows: 60px 1fr;
-  overflow: hidden
+  overflow: hidden;
+  align-items: center;
+  justify-items: center;
+  position: relative
 }
 
 .hiddenInformation {
-  transition: max-height 5s ;
-  max-height: 0px;
-  overflow: hidden
+  height: 0px;
+  overflow: hidden;
+  transition: 0.1s;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .titleButton {
   cursor: pointer;
   margin: 0;
-  height: 100%;
-  display: grid;
-  align-items: center;
-  justify-items: center;
-}
-
-.expandedLevel1 {
-  grid-template-rows: 1fr 60px 60px 60px
-}
-
-.expandedLevel1 {
-  height: 100%
-}
-
-.expandedLevel2 {
-  grid-template-rows: 60px 1fr 60px 60px
-}
-
-.expandedLevel3 {
-  grid-template-rows: 60px 60px 1fr 60px
-}
-
-.expandedLevel4 {
-  grid-template-rows: 60px 60px 60px 1fr
+  height: 20px;
+  position: absolute;
+  right:20px;
+  top: 20px;
+  background-color: white;
+  border-radius: 50%;
+  border: 2px solid black
 }
 
 .forestPic {
   width: 400px;
   height: 400px;
-  object-fit: cover
+  object-fit: cover;
+  padding: 10px
+}
+
+.level1 {
+  background-color: #ececec;
+  color: orange;
+}
+
+.level2 {
+  background-color: #dadada;
+  color: #f6b641;
+}
+
+.level3 {
+  background-color: #b7b5b5;
+  color: #ffc761;
+}
+
+.level4 {
+  background-color: #969494;
+  color: #fcdda5;
+}
+
+.hiddenTextBox {
+  padding: 10px;
+  text-align: center
 }

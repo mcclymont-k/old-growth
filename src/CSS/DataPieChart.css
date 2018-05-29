@@ -49,10 +49,13 @@
 }
 
 .pieChartInformationBox {
-  border: 1px solid black;
   padding: 10px
 }
 
 .pieChartInformationBox h1 {
   text-align: center
+}
+
+.pieChartInformationBox h2 {
+  font-size: 10px
 }

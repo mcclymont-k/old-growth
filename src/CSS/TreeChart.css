@@ -44,10 +44,8 @@
 
 .animalInfoBox {
   width: 300px;
-  border: 1px solid orange;
   display: grid;
   grid-template-rows: 40px 1fr;
-  justify-items: center;
   padding: 10px;
   text-transform: capitalize;
   margin: none;
@@ -55,8 +53,20 @@
 
 .animalInfoBox h1 {
   margin: 0;
+  color: orange;
+  justify-self: center
+}
+
+.animalInfoBox h2::before {
+  content: '';
+  height: 2px;
+  background-color: lightgrey;
+  width: 100%;
+  display:block;
+  margin: 5px;
 }
 
 .animalInfoBox h2 {
-  font-size: 12px
+  font-size: 12px;
+  margin: 0;
 }

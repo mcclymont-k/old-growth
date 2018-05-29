@@ -1,5 +1,4 @@
 import { createStore } from 'redux'
-import { syncHistoryWithStore } from 'react-router-redux'
 
 import rootReducer from './Reducers/index'
 
