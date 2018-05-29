@@ -5,3 +5,10 @@ export function updateUserData(index, data) {
     data
   }
 }
+
+export function updateArticles(data) {
+  return {
+    type: 'UPDATE_ARTICLES',
+    data
+  }
+}

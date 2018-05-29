@@ -1,55 +1,40 @@
 import React, { Component } from 'react'
 import '../CSS/News.css'
+import fire from '../firebase'
+import firebase from 'firebase'
+
 const bat = require('../Images/bat.jpg')
+const database = fire.database()
 
 class News extends Component {
 
   state = {
-    articles: [
-      {
-        name: 'article 1',
-        blurb: 'stuff about the article',
-        image: bat
-      },
-      {
-        name: 'article 2',
-        blurb: 'stuff about the article',
-        image: bat
-      },
-      {
-        name: 'article 3',
-        blurb: 'stuff about the article',
-        image: bat
-      },
-      {
-        name: 'article 4',
-        blurb: 'stuff about the article',
-        image: bat
-      },
-      {
-        name: 'article 5',
-        blurb: 'stuff about the article',
-        image: bat
-      },
-      {
-        name: 'article 6',
-        blurb: 'stuff about the article',
-        image: bat
-      }
-    ]
+
+  }
+
+  componentDidMount() {
+    console.log(this.props.articles)
+    let articlesRef = database.ref('articles')
+    articlesRef.on('value', data => {
+      let articles=data.val()
+      this.props.updateArticles(articles)
+    })
   }
   render() {
     return(
       <div className='articlesContainer'>
-        {this.state.articles.map( article =>
-          <div className='articleContainer'>
-            <div>
-              <h1>{article.name}</h1>
-              <h2>{article.blurb}</h2>
+        {this.props.articles.length > 1
+          ? this.props.articles.map( article =>
+            <div className='articleContainer'>
+              <div>
+                <h1>{article.name}</h1>
+                <h2>{article.blurb}</h2>
+              </div>
+              <img className='articleImage' src={eval(article.image)}></img>
             </div>
-            <img className='articleImage' src={article.image}></img>
-          </div>
-        )}
+            )
+          : []
+        }
       </div>
     )
   }

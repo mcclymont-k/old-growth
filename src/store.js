@@ -4,7 +4,8 @@ import rootReducer from './Reducers/index'
 
 
 const defaultState = {
-  user: {}
+  user: {},
+  articles: []
 }
 
 const store = createStore(rootReducer, defaultState)
