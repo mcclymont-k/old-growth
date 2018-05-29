@@ -1,0 +1,31 @@
+.articlesContainer {
+  padding-top: 200px
+}
+
+.articleContainer {
+  width: 70%;
+  max-width: 720px;
+  margin: 0px auto 50px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  transition: 0.3s;
+}
+
+.articleContainer::after {
+  content: '';
+  width: 200%;
+  background-color: #f0eaea;
+  display: block;
+  height: 1px;
+  margin-top: 50px
+}
+
+.articleContainer:hover {
+  background-color: #f0eaea;
+}
+
+.articleImage {
+  width: 100%;
+  justify-self: center;
+  align-self: center
+}

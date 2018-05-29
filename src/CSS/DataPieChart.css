@@ -45,11 +45,21 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   width: 70%;
-  margin: 100px auto
+  margin: 100px auto 50px auto
+}
+
+.pieChartContainer::after {
+  content: '';
+  height: 1px;
+  width: 200%;
+  background-color: lightgrey;
+  display: block;
+  margin-top: 50px
 }
 
 .pieChartInformationBox {
-  padding: 10px
+  padding: 10px;
+  max-width: 460px
 }
 
 .pieChartInformationBox h1 {
