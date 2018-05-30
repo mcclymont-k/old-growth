@@ -42,7 +42,7 @@
 .bannerContainer {
   width: 100%;
   display: grid;
-  height: 500px;
+  height: 100vh;
   position: relative;
   align-items: center;
   justify-items: center;

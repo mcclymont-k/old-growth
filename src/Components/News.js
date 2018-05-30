@@ -4,6 +4,7 @@ import fire from '../firebase'
 import firebase from 'firebase'
 
 const bat = require('../Images/bat.jpg')
+const owl = require('../Images/owl.jpeg')
 const database = fire.database()
 
 class News extends Component {
@@ -24,11 +25,9 @@ class News extends Component {
           this.props.articles.length > 1
           ? this.props.articles.map( article =>
             <div className='articleContainer'>
-              <div>
-                <h1>{article.name}</h1>
-                <h2>{article.blurb}</h2>
-              </div>
               <img className='articleImage' src={eval(article.image)}></img>
+              <h1>{article.name}</h1>
+              <h2>{article.blurb}</h2>
             </div>
             )
           : []

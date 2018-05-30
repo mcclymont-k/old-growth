@@ -20,7 +20,7 @@ class Home extends Component {
     window.onscroll = function(e){
       let offSet = window.pageYOffset
       offSet
-      ?  offSet > titleOffSet - 40
+      ?  offSet > titleOffSet - 30
         ? (
             titleGrab.style.position = 'fixed',
             titleGrab.style.fontSize = '50px',

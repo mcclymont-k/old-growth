@@ -90,7 +90,6 @@ class TreeChart extends Component {
   }
 
   componentDidMount() {
-
     let treeChart = d3.select(this.refs.treeChart)
     let treeMap = d3.tree().size([400, 300])
     let nodes = d3.hierarchy(this.state.animalData)
@@ -148,7 +147,6 @@ class TreeChart extends Component {
             {
           // Map over the animal list and append images on the appropriate tree node
               this.state.animalList.map((animal, index) => {
-                console.log(animal.name)
                 let x = 0
                 let y = 0
                 let nodeName = document.querySelector('.' + animal.name + 'Node')
