@@ -9,6 +9,8 @@ const cat = require('../Images/cat.jpg')
 const mouse = require('../Images/mouse.jpg')
 const apex = require('../Images/apex.jpg')
 const rabbit = require('../Images/rabbit.jpg')
+const moose = require('../Images/moose.jpg')
+const marten = require('../Images/marten.jpg')
 
 class TreeChart extends Component {
   constructor() {
@@ -20,34 +22,27 @@ class TreeChart extends Component {
         image: this.bat,
         children: [
           {
-            animal: 'bat',
-            image: owl,
+            animal: 'owl',
             children: [
               {
                 animal: 'squirrel',
-                image: owl,
               },
               {
                 animal: 'rabbit',
-                image: owl,
               },
             ]
           },
           {
-            animal: 'bear',
-            image: owl,
+            animal: 'moose',
           },
           {
-            animal: 'owl',
-            image: this.bat,
+            animal: 'marten',
             children: [
               {
                 animal: 'mouse',
-                image: this.bat,
               },
               {
-                animal: 'cat',
-                image: this.bat,
+                animal: 'bat',
               }
             ]
           }
@@ -56,15 +51,15 @@ class TreeChart extends Component {
       animalList: [
         {
           name: 'bat',
-          description: 'Information about bats,Information about bats,Information about bats,Information about bats,Information about bats,Information about bats, Information about bats, Information about bats, Information about bats'
+          description: 'The charachteristic dead tree stands of old growth forests provide essential roosting spots for many forest dwelling bat species. Furthermore, these dead stands provide insect habitats, providing the bats with a regular food source'
         },
         {
           name: 'squirrel',
           description: 'Information about squirrels'
         },
         {
-          name: 'bear',
-          description: 'Information about bears'
+          name: 'moose',
+          description: 'Moose also require large expanses of old growth forests for grazing. Moose are particularly susceptibe to habitat reduction as is shown in their declining numbers in mainland Nova Scotia.'
         },
         {
           name: 'mouse',
@@ -80,7 +75,15 @@ class TreeChart extends Component {
         },
         {
           name: 'apex',
-          description: 'Information about apex predators'
+          description: 'Apex predators such as wolves, bears, coyotes and mountain lions require large roaming expanses of wilderness in order to find prey'
+        },
+        {
+          name: 'owl',
+          description: 'owls'
+        },
+        {
+          name: 'marten',
+          description: 'Stuff about Martens'
         }
       ]
     }
@@ -89,7 +92,7 @@ class TreeChart extends Component {
   componentDidMount() {
 
     let treeChart = d3.select(this.refs.treeChart)
-    let treeMap = d3.tree().size([400, 400])
+    let treeMap = d3.tree().size([400, 300])
     let nodes = d3.hierarchy(this.state.animalData)
     nodes = treeMap(nodes)
     let g = treeChart.append('g')
@@ -116,27 +119,6 @@ class TreeChart extends Component {
 
     this.setState({mounted: true})
   }
-  componentDidUpdate() {
-
-  }
-
-  renderAnimalImages() {
-    this.state.animalList.map((animal, index) => {
-      let x = 0
-      let y = 0
-      let nodeName = document.querySelector('.' + animal.name + 'Node')
-      if (nodeName) {
-        x = document.querySelector('.' + animal.name + 'Node').__data__.x -20
-        y = document.querySelector('.' + animal.name + 'Node').__data__.y -20
-        return (
-          <div style={{top: y, left: x}} className="treeImageContainer" key={index} >
-            <img src={eval(animal.name)} className='treeImage' alt='not available' ref='treeImage' id={index} onMouseOver={(e) => this.handleHover(e)}/>
-          </div>
-        )
-
-      } else { return }
-    })
-  }
 
   handleHover(e) {
     const animalTarget = this.state.animalList[e.target.id]
@@ -150,16 +132,23 @@ class TreeChart extends Component {
       <div className='treeChartContainer'>
         <div className='treeAnimalInfoContainer'>
           <div className='animalInfoBox'>
-            <h1>Animal</h1>
-            <h2>descrioption</h2>
+            <h1>Animals</h1>
+            <h2>
+              Many animal species depend on the unique features of old growth
+              forests in order to survive, whether that be the habitat it provides,
+              the other animals it attracts or the climates that it produces. <br/><br/>Hover
+              over the images to get more information about some species challeneged
+              by a lack of old growth forests
+            </h2>
           </div>
         </div>
         <div className='treeVisualContainer'>
-          <svg height='400px' width='400px' ref='treeChart' />
+          <svg height='300px' width='400px' ref='treeChart' />
           <div className='treeCover'>
             {
           // Map over the animal list and append images on the appropriate tree node
               this.state.animalList.map((animal, index) => {
+                console.log(animal.name)
                 let x = 0
                 let y = 0
                 let nodeName = document.querySelector('.' + animal.name + 'Node')

@@ -43,15 +43,14 @@
 }
 
 .animalInfoBox {
-  width: 300px;
   display: grid;
   grid-template-rows: 40px 1fr;
   padding: 10px;
-  text-transform: capitalize;
   margin: none;
 }
 
 .animalInfoBox h1 {
+  text-transform: capitalize;
   margin: 0;
   color: orange;
   justify-self: center
@@ -61,12 +60,16 @@
   content: '';
   height: 2px;
   background-color: lightgrey;
-  width: 100%;
+  width: 80%;
   display:block;
-  margin: 5px;
+  margin: 5px auto;
 }
 
 .animalInfoBox h2 {
   font-size: 12px;
   margin: 0;
+}
+
+.treeAnimalInfoContainer {
+  width: 100%
 }

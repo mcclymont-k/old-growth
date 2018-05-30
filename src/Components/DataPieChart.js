@@ -74,7 +74,7 @@ class DataPieChart extends Component {
           .duration(500)
           .ease(d3.easeExp)
           .style('opacity', 1)
-          .text('Number of Old-growth forests: ' + targetData.total)
+          .text('Number of remaining Old-growth forests: ' + targetData.total)
       })
       .on('mouseout', (d, i) => {
         let target = d3.select(d3.event.target)
@@ -102,7 +102,14 @@ class DataPieChart extends Component {
         <svg height='500px' width='500px' ref='svgContainer' className='dataPieChart'></svg>
         <div className='pieChartInformationBox'>
           <h1>Old growth forests</h1>
-          <h2>They are only a few of them, they provide essential habitats, they protect the environment ....</h2>
+          <h2>
+            An old growth forest or late seral forest is a forest that has been untouched
+            for an extended period of time, giving it unique features. These features include biodiversity,
+            a stable enviornmental structure and a thick decaying ground layer.<br/><br/>
+            These features have broad reaching effects that can be stabalising to a local environment.
+            It is estimated that only 21% of olld growth forests are left on the earth, with less
+            than 3% remaining in Europe and 7% in South East Asia.
+          </h2>
         </div>
         <div className='pieTitle'>Number of old growth forests identified in each country</div>
         <div className='infoDiv'></div>

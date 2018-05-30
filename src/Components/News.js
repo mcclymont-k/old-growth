@@ -8,10 +8,6 @@ const database = fire.database()
 
 class News extends Component {
 
-  state = {
-
-  }
-
   componentDidMount() {
     console.log(this.props.articles)
     let articlesRef = database.ref('articles')
@@ -20,10 +16,12 @@ class News extends Component {
       this.props.updateArticles(articles)
     })
   }
+
   render() {
     return(
       <div className='articlesContainer'>
-        {this.props.articles.length > 1
+        {
+          this.props.articles.length > 1
           ? this.props.articles.map( article =>
             <div className='articleContainer'>
               <div>
