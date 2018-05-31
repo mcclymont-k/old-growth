@@ -166,7 +166,10 @@ class Banner extends Component {
         }
         {this.state.signOutAlert
           ? <div className='overlay'>
-              <div className='changeAlert' onClick={this.closeModal.bind(this)}>
+              <div className='changeAlert' onClick={e => {
+                this.closeModal.bind(this)
+                window.location = window.location.origin
+              }}>
                 You have succesfully signed out, please come again!
               </div>
             </div>
