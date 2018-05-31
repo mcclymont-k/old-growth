@@ -10,7 +10,7 @@
 
 .articleContainer {
   display: grid;
-  grid-template-rows: 45% 20px 1fr;
+  grid-template-rows: 45% auto 1fr;
   border-radius: 10px;
   overflow: hidden;
   height: 320px;
@@ -21,7 +21,8 @@
 
 .articleContainer:hover {
   border: 2px solid orange;
-  cursor: pointer
+  cursor: pointer;
+  overflow: auto
 }
 
 .articleImage {
@@ -37,7 +38,7 @@
   margin: 0;
   text-transform: capitalize;
   width:auto;
-  align-self:center
+  align-self:center;
 }
 
 .articleContainer:hover h1 {

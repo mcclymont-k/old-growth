@@ -20,9 +20,15 @@
 .hiddenInformation {
   height: 0px;
   overflow: hidden;
-  transition: 0.1s;
+  transition: 0.5s;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  transition-timing-function: ease-in-out;
+}
+
+.hiddenInformation h1 {
+  font-size: 12px;
+  color: black
 }
 
 .titleButton {
@@ -32,16 +38,17 @@
   position: absolute;
   right:20px;
   top: 20px;
-  background-color: white;
   border-radius: 50%;
-  border: 2px solid black
+  transition: 0.5s
 }
 
 .forestPic {
   width: 400px;
   height: 400px;
   object-fit: cover;
-  padding: 10px
+  padding: 10px;
+  align-self: center;
+  justify-self: center
 }
 
 .level1 {
@@ -66,5 +73,5 @@
 
 .hiddenTextBox {
   padding: 10px;
-  text-align: center
+  font-weight: normal
 }

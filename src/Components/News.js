@@ -24,8 +24,8 @@ class News extends Component {
         {
           this.props.articles.length > 1
           ? this.props.articles.map( article =>
-            <div className='articleContainer'>
-              <img className='articleImage' src={eval(article.image)}></img>
+            <div className='articleContainer' onClick={e => window.location = article.url}>
+              <img className='articleImage' src={article.image}></img>
               <h1>{article.name}</h1>
               <h2>{article.blurb}</h2>
             </div>
