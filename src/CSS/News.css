@@ -1,7 +1,7 @@
 .articlesContainer {
   padding-top: 200px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, 200px );
+  grid-template-columns: repeat(auto-fit, 237px );
   width: 70%;
   grid-gap: 30px;
   margin: auto;
@@ -14,9 +14,9 @@
   border-radius: 10px;
   overflow: hidden;
   height: 320px;
-  border: 2px solid rgba(255,255,255,0);
+  border: 2px solid white;
   transition: 0.2s;
-  background-color: #e3e3e3;
+  background: linear-gradient(black, lightgrey);
 }
 
 .articleContainer:hover {
@@ -39,10 +39,12 @@
   text-transform: capitalize;
   width:auto;
   align-self:center;
+  color: white;
+  padding: 3px
 }
 
 .articleContainer:hover h1 {
-  color: #ec4700;
+  color: orange;
 }
 
 .articleContainer h2 {

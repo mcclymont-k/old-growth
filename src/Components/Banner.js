@@ -79,12 +79,25 @@ class Banner extends Component {
       .catch(error => console.log(error))
   }
 
+  menuHover() {
+    const dropDown = document.getElementsByClassName('dropDownMenu')[0]
+    dropDown.childNodes.forEach( (child, i) => {
+      dropDown.style.display = 'grid'
+      child.style.animation = `dropDown ${(i + 1) * 0.2}s linear forwards`
+    })
+  }
+
+  menuMouseOut() {
+    const dropDown = document.getElementsByClassName('dropDownMenu')[0]
+    dropDown.style.display = 'none'
+  }
+
   render() {
     return (
       <div className='navBarContainer'>
         {this.props.location.pathname === '/donate'
           ? []
-          : <div className='donationContainer'>
+          : <div>
               <img src={tree} className='donationButton donateImage' alt='not available'></img>
               <Link to='/donate' className='donationButton'><h1>DONATE</h1></Link>
             </div>
@@ -101,23 +114,43 @@ class Banner extends Component {
           ? this.props.user.contributionLevel === '1'
             ? <div className='contributionLevelNav'>
                 <div className='buttonBar'>
-                  <Link to='/news' className='contentButton'>News</Link>
+                  <div className='contentButton menu' onMouseOver={() => this.menuHover()} onMouseOut={() => this.menuMouseOut()}>
+                    <h1>MENU</h1>
+                  </div>
+                  <div className='dropDownMenu' onMouseOver={() => this.menuHover()} onMouseOut={() => this.menuMouseOut()}>
+                    <Link to='/' className='menuButton'>HOME</Link>
+                    <Link to='/news' className='menuButton menuButton1'>NEWS</Link>
+                  </div>
                 </div>
                 <button className='signInButton' onClick={this.signOut.bind(this)}>Sign Out</button>
               </div>
             : this.props.user.contributionLevel === '2'
               ? <div className='contributionLevelNav'>
                   <div className='buttonBar'>
-                    <Link to='/news' className='contentButton'>News</Link>
-                    <Link to='/build' className='contentButton'>Build</Link>
+                    <div className='contentButton menu' onMouseOver={() => this.menuHover()} onMouseOut={() => this.menuMouseOut()}>
+                      <h1>MENU</h1>
+                    </div>
+                  </div>
+                  <div className='dropDownMenu' onMouseOver={() => this.menuHover()} onMouseOut={() => this.menuMouseOut()}>
+                    <Link to='/' className='menuButton'>HOME</Link>
+                    <Link to='/news' className='menuButton menuButton1'>NEWS</Link>
+                    <Link to='/build' className='menuButton menuButton2'>BUILD</Link>
                   </div>
                   <button className='signInButton' onClick={this.signOut.bind(this)}>Sign Out</button>
                 </div>
               : <div className='contributionLevelNav'>
                   <div className='buttonBar'>
-                    <Link to='/news' className='contentButton'>News</Link>
-                    <Link to='/build' className='contentButton'>Build</Link>
-                    <Link to='/community' className='contentButton'>Community</Link>
+                    <div className='contentButton menu' onMouseOver={() => this.menuHover()} onMouseOut={() => this.menuMouseOut()}>
+                      <h1>MENU</h1>
+                    </div>
+                    <Link to='/build' className='contentButton'><h1>Build</h1></Link>
+                    <Link to='/community' className='contentButton'><h1>Community</h1></Link>
+                  </div>
+                  <div className='dropDownMenu' onMouseOver={() => this.menuHover()} onMouseOut={() => this.menuMouseOut()}>
+                    <Link to='/' className='menuButton'>HOME</Link>
+                    <Link to='/news' className='menuButton menuButton1'>NEWS</Link>
+                    <Link to='/build' className='menuButton menuButton2'>BUILD</Link>
+                    <Link to='/diy' className='menuButton menuButton3'>DIY</Link>
                   </div>
                   <button className='signInButton' onClick={this.signOut.bind(this)}>Sign Out</button>
                 </div>

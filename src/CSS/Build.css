@@ -14,7 +14,8 @@
   overflow: hidden;
   align-items: center;
   justify-items: center;
-  position: relative
+  position: relative;
+  border-radius: 5px
 }
 
 .hiddenInformation {
@@ -53,12 +54,12 @@
 
 .level1 {
   background-color: #ececec;
-  color: orange;
+  color: #d78f0b;;
 }
 
 .level2 {
   background-color: #dadada;
-  color: #f6b641;
+  color: orange;
 }
 
 .level3 {
@@ -74,4 +75,12 @@
 .hiddenTextBox {
   padding: 10px;
   font-weight: normal
+}
+
+.hiddenLevel3 h1{
+  color: white;
+}
+
+.hiddenLevel4 h1{
+  color: white
 }

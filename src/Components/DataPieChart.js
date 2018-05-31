@@ -103,7 +103,7 @@ class DataPieChart extends Component {
         <div className='pieChartInformationBox'>
           <h1>Old growth forests</h1>
           <h2>
-            An old growth forest or late seral forest is a forest that has been untouched
+            An old growth or late seral forest is a forest that has been untouched
             for an extended period of time, giving it unique features. These features include biodiversity,
             a stable enviornmental structure and a thick decaying ground layer.<br/><br/>
             These features have broad reaching effects that can be stabalising to a local environment.

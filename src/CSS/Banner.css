@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC');
 
 .overlayContainer{
   display: grid;
@@ -21,6 +21,9 @@
   margin-right: 30px;
   justify-self: flex-end;
   z-index: 1;
+  font-family: 'Amatic SC', cursive;
+  font-size: 20px;
+  font-weight: bold
 }
 
 .signInButton:hover {
@@ -57,16 +60,12 @@
   position:absolute;
   margin-left: auto;
   margin-right: auto;
-  color: #ec4700;
+  color: orange;
   left: 0;
   right: 0;
   width: 20%;
   text-align: center;
   text-decoration: none;
-}
-
-.donationContainer {
-  position: absolute;
 }
 
 .donationButton {
@@ -86,11 +85,12 @@
 .donationButton h1 {
   font-weight: bold;
   font-size: 8.5px;
-  color: #ec4700;
+  color: orange;
   background-color: rgba(255, 255, 255, 0.9);
   width: 90%;
   margin: auto;
   text-align: center;
+  padding-right: 0.5px
 }
 
 .donationButton:hover {
@@ -120,33 +120,45 @@
   display: grid;
   grid-auto-flow: column;
   justify-items: flex-start;
-  grid-template-columns: 50px 50px 50px;
-  grid-gap: 50px;
+  grid-template-columns: 140px 140px 140px;
+  height: 100%;
 }
 
 .contentButton {
   border: none;
   background-color: rgba(0,0,0,0);
   color: white;
-  margin-left: 50px;
   text-decoration: none;
   z-index: 1;
-  padding: 3px;
+  width:100%;
+  height: 100%;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  position: relative
+}
+
+.contentButton h1 {
+  font-size: 20px;
+  position: relative;
+  text-transform: uppercase;
+  font-family: 'Amatic SC', cursive;
 }
 
 .contentButton {
   cursor: pointer;
 }
 
-.contentButton::after {
+.contentButton h1::after {
   content:'';
   width: 0;
   height: 2px;
   background-color: grey;
   display: block;
+  position: block
 }
 
-.contentButton:hover::after {
+.contentButton:hover h1::after {
   animation: animateLine 0.2s linear forwards
 }
 
@@ -158,8 +170,35 @@
   background-color: white;
 }
 
-.:hover {
-  background-color: white
+.dropDownMenu {
+  position: absolute;
+  padding-top: 60px;
+  width: 140px;
+  grid-template-rows: 60px;
+  grid-auto-rows: 60px;
+  display: none;
+  perspective: 1000px;
+  top: 0;
+  z-index: 2
+}
+
+.menuButton {
+  opacity:0;
+  background-color:#363333;
+  text-align:center;
+  padding-top: 15px;
+  cursor: pointer;
+  color: white;
+  border: 1px solid #363333;
+  font-family: 'Amatic SC', cursive;
+  font-weight: bold;
+  text-decoration: none;
+  outline: 0
+}
+
+.menuButton:hover {
+  border-top: 1px solid orange;
+  color: orange
 }
 
 @keyframes animateLine {
@@ -168,5 +207,16 @@
   }
   100% {
     width:100%;
+  }
+}
+
+@keyframes dropDown {
+  0% {
+    opacity: 0.3;
+    transform: rotateY(-90deg) translate(30px)
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(0deg) translateY(0px)
   }
 }
