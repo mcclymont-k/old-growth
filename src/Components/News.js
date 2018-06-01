@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
 import '../CSS/News.css'
 import fire from '../firebase'
-import firebase from 'firebase'
 
-const bat = require('../Images/bat.jpg')
-const owl = require('../Images/owl.jpeg')
 const database = fire.database()
 
 class News extends Component {

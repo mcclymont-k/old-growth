@@ -23,7 +23,7 @@
   position: absolute;
   opacity: 0;;
   pointer-events: none;
-  bottom: 280px;
+  bottom: 230px;
   left: 150px
 }
 
@@ -46,16 +46,8 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   width: 70%;
-  margin: 100px auto 50px auto
-}
-
-.pieChartContainer::after {
-  content: '';
-  height: 1px;
-  width: 200%;
-  background-color: lightgrey;
-  display: block;
-  margin-top: 50px
+  margin: 100px auto 50px auto;
+  align-items: center;
 }
 
 .pieChartInformationBox {

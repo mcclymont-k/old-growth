@@ -117,10 +117,11 @@ class Banner extends Component {
                   <div className='contentButton menu' onMouseOver={() => this.menuHover()} onMouseOut={() => this.menuMouseOut()}>
                     <h1>MENU</h1>
                   </div>
-                  <div className='dropDownMenu' onMouseOver={() => this.menuHover()} onMouseOut={() => this.menuMouseOut()}>
-                    <Link to='/' className='menuButton'>HOME</Link>
-                    <Link to='/news' className='menuButton menuButton1'>NEWS</Link>
-                  </div>
+                </div>
+                <div className='dropDownMenu' onMouseOver={() => this.menuHover()} onMouseOut={() => this.menuMouseOut()}>
+                  <Link to='/' className='menuButton'>HOME</Link>
+                  <Link to='/news' className='menuButton'>NEWS</Link>
+                  <Link to='/community' className='menuButton'>COMMUNITY</Link>
                 </div>
                 <button className='signInButton' onClick={this.signOut.bind(this)}>Sign Out</button>
               </div>
@@ -134,7 +135,9 @@ class Banner extends Component {
                   <div className='dropDownMenu' onMouseOver={() => this.menuHover()} onMouseOut={() => this.menuMouseOut()}>
                     <Link to='/' className='menuButton'>HOME</Link>
                     <Link to='/news' className='menuButton menuButton1'>NEWS</Link>
+                    <Link to='/community' className='menuButton'>COMMUNITY</Link>
                     <Link to='/build' className='menuButton menuButton2'>BUILD</Link>
+
                   </div>
                   <button className='signInButton' onClick={this.signOut.bind(this)}>Sign Out</button>
                 </div>
@@ -143,12 +146,11 @@ class Banner extends Component {
                     <div className='contentButton menu' onMouseOver={() => this.menuHover()} onMouseOut={() => this.menuMouseOut()}>
                       <h1>MENU</h1>
                     </div>
-                    <Link to='/build' className='contentButton'><h1>Build</h1></Link>
-                    <Link to='/community' className='contentButton'><h1>Community</h1></Link>
                   </div>
                   <div className='dropDownMenu' onMouseOver={() => this.menuHover()} onMouseOut={() => this.menuMouseOut()}>
                     <Link to='/' className='menuButton'>HOME</Link>
                     <Link to='/news' className='menuButton menuButton1'>NEWS</Link>
+                    <Link to='/community' className='menuButton'>COMMUNITY</Link>
                     <Link to='/build' className='menuButton menuButton2'>BUILD</Link>
                     <Link to='/diy' className='menuButton menuButton3'>DIY</Link>
                   </div>
