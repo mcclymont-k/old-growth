@@ -25,6 +25,9 @@
   width: 100%
 }
 
+.signInBox h2 {
+  font-size: 10px
+}
 .signInBox h3 {
   font-size: 8px;
   margin-top: 15px;
@@ -48,7 +51,6 @@
 .signInForm {
   display: grid;
   justify-items: center;
-  padding-bottom: 30px;
 }
 
 .logIn::after {

@@ -117,6 +117,7 @@ class SignUp extends Component {
                 </form>
               : <form onSubmit={this.handleSignUp.bind(this)} className='signUpForm'>
                   <h2>1. Add your details</h2>
+                  <h3>Password must be at leat 6 charachters long</h3>
                   <input type='text' ref={input => this.firstName = input} className='inputField' placeholder='First name' />
                   <input type='text' ref={input => this.lastName = input} className='inputField' placeholder='Last name'/>
                   <input type='email' ref={input => this.email = input} className='inputField' placeholder='email'/>

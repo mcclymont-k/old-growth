@@ -37,16 +37,22 @@ class Banner extends Component {
   authenticate(email) {
     let usersRef = database.ref('users')
     usersRef.orderByChild('email').equalTo(email).on('value', e =>  {
-      let key = Object.keys(e.val())
-      let currentUserData = e.val()[key[0]]
-      this.props.updateUserData(0, currentUserData)
-      this.setState({
-        signInNotification: true,
-        authenticated: true,
-        loading: false
-      })
-      this.closeModal()
-      window.setTimeout(() => this.setState({signInNotification: false}), 2000)
+      if (e.val()) {
+        let key = Object.keys(e.val())
+        let currentUserData = e.val()[key[0]]
+        this.props.updateUserData(0, currentUserData)
+        this.setState({
+          signInNotification: true,
+          authenticated: true,
+          loading: false
+        })
+        this.closeModal()
+        window.setTimeout(() => this.setState({signInNotification: false}), 2000)
+      }
+      else {
+        console.log('problem')
+        this.signOut()
+      }
     })
   }
 
