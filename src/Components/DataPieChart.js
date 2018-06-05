@@ -64,7 +64,7 @@ class DataPieChart extends Component {
         let targetData = target.data()[0].data
         target.transition()
           .attr('transform', 'scale(1.04)')
-          .style('stroke', 'black')
+          .style('stroke', 'white')
         infoDiv.transition()
           .ease(d3.easeExp)
           .duration(500)

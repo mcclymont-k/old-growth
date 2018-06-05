@@ -184,11 +184,11 @@
 
 .menuButton {
   opacity:0;
-  background-color:#363333;
+  background-color:lightgrey;
   text-align:center;
   padding-top: 15px;
   cursor: pointer;
-  color: white;
+  color: black;
   border: 1px solid #363333;
   font-family: 'Amatic SC', cursive;
   font-weight: bold;

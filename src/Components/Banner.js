@@ -47,7 +47,7 @@ class Banner extends Component {
           loading: false
         })
         this.closeModal()
-        window.setTimeout(() => this.setState({signInNotification: false}), 2000)
+        window.setTimeout(() => this.setState({signInNotification: false}), 2500)
       }
       else {
         console.log('problem')

@@ -16,6 +16,10 @@
   font-size: 15px;
 }
 
+.signUpForm h3 {
+  font-size: 10px
+}
+
 .signUpButton {
   border: none;
   background-color: white;

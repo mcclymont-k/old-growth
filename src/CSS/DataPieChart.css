@@ -1,5 +1,4 @@
 .infoDiv {
-  border-bottom: 1px solid white;
   display: grid;
   align-items: center;
   justify-content: center;
@@ -9,7 +8,8 @@
   opacity: 0;
   pointer-events: none;;
   top: 200px;
-  left: 150px
+  left: 150px;
+  color: white
 }
 
 .infoDiv2{
@@ -24,7 +24,8 @@
   opacity: 0;;
   pointer-events: none;
   bottom: 230px;
-  left: 150px
+  left: 150px;
+  color: white
 }
 
 .pieTitle{
@@ -33,7 +34,7 @@
   position: absolute;
   top: 0;
   font-size: 10px;
-  color: grey;
+  color: lightgrey;
   display: grid;
   align-content: flex-end;
   justify-items: center;
@@ -62,7 +63,8 @@
 }
 
 .pieChartInformationBox h2 {
-  font-size: 10px
+  font-size: 11px;
+  color: white
 }
 
 .pieChartInformationBox h2::before {

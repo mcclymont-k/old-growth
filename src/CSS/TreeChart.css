@@ -66,8 +66,9 @@
 }
 
 .animalInfoBox h2 {
-  font-size: 12px;
+  font-size: 11px;
   margin: 0;
+  color: white
 }
 
 .treeAnimalInfoContainer {
