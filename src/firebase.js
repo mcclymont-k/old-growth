@@ -1,8 +1,8 @@
 import firebase from 'firebase'
 
 var config = {
-  // process.env.REACT_APP_FIREBASE_API_KEY
-   apiKey: REACT_APP_FIREBASE_API_KEY,
+    // REACT_APP_FIREBASE_API_KEY
+   apiKey: 'AIzaSyBb3JrfdqR9jYFeBwZLxgFEFU4dNUOtF54',
    authDomain: "old-growth.firebaseapp.com",
    databaseURL: "https://old-growth.firebaseio.com",
    projectId: "old-growth",
