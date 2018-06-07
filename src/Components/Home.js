@@ -73,7 +73,7 @@ class Home extends Component {
               <h2>
                 Your local tree species. Each forest will be individual to the
                 location in which it is built. Researhcing the predominant tree species
-                in your area is essential before you are able to design and plan
+                in your area is essential before you are able to design and plant.
               </h2>
             </div>
             <div className='singleInfoGraphic'>
@@ -82,7 +82,7 @@ class Home extends Component {
               <h2>
                 Using the above information and with a picture of the forest in the
                 future, you can begin to plan. You must decide upon the forest function;
-                fruiting, nature attracting, weather protection and then desing appropriately.
+                fruiting, nature attracting, weather protection and then design appropriately.
               </h2>
             </div>
             <div className='singleInfoGraphic'>
@@ -94,6 +94,7 @@ class Home extends Component {
             </div>
           </div>
         </div>
+        <div className='line' />
         <DataPieChart />
         <div className='line' />
         <TreeChart />

@@ -47,7 +47,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   width: 70%;
-  margin: 100px auto 50px auto;
+  margin: 100px auto 100px auto;
   align-items: center;
 }
 
