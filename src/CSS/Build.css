@@ -5,7 +5,8 @@
   padding-top: 140px;
   grid-gap: 5px;
   height: 100%;
-  padding-bottom: 140px
+  padding-bottom: 140px;
+  justify-content: center
 }
 
 .forestInfoBox {
@@ -15,7 +16,13 @@
   align-items: center;
   justify-items: center;
   position: relative;
-  border-radius: 5px
+  border-radius: 5px;
+  max-width: 980px
+}
+
+.forestInfoBox h1 {
+  text-shadow: 0.5px 0.5px 2px black;
+  font-size: 20px;
 }
 
 .hiddenInformation {
@@ -27,7 +34,7 @@
   transition-timing-function: ease-in-out;
 }
 
-.hiddenInformation h1 {
+.hiddenInformation h2 {
   font-size: 12px;
   color: black
 }
@@ -47,40 +54,35 @@
   width: 400px;
   height: 400px;
   object-fit: cover;
-  padding: 10px;
   align-self: center;
   justify-self: center
 }
 
 .level1 {
-  background-color: #ececec;
-  color: #d78f0b;;
+  background-color: #959595;
+  color: orange;
+}
+
+.forestInfoBox img {
+  background-color: white
 }
 
 .level2 {
-  background-color: #dadada;
+  background-color: #959595;
   color: orange;
 }
 
 .level3 {
-  background-color: #b7b5b5;
-  color: #ffc761;
+  background-color: #959595;
+  color: orange;
 }
 
 .level4 {
-  background-color: #969494;
-  color: #fcdda5;
+  background-color: #959595;
+  color: orange;
 }
 
 .hiddenTextBox {
   padding: 10px;
   font-weight: normal
-}
-
-.hiddenLevel3 h1{
-  color: white;
-}
-
-.hiddenLevel4 h1{
-  color: white
 }

@@ -66,6 +66,7 @@
   width: 20%;
   text-align: center;
   text-decoration: none;
+  min-width: 160px
 }
 
 .donationButton {
@@ -188,7 +189,7 @@
   text-align:center;
   padding-top: 15px;
   cursor: pointer;
-  color: black;
+  color: grey;
   border: 1px solid #363333;
   font-family: 'Amatic SC', cursive;
   font-weight: bold;
@@ -197,8 +198,8 @@
 }
 
 .menuButton:hover {
-  border-top: 1px solid orange;
-  color: orange
+  border-top: 3px solid orange;
+  color: black
 }
 
 @keyframes animateLine {

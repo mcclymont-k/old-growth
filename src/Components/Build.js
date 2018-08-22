@@ -37,7 +37,7 @@ class Build extends Component {
           <div className='hiddenInformation hiddenLevel1'>
             <img src={emergent} alt='not available' className='forestPic'/>
             <div className='hiddenTextBox'>
-              <h1>
+              <h2>
                 The emergent layer describes the tallest trees that extend their reach
                 out of the forest canopy. This layer receives the most sunlight per day
                 and so often exhibits the brightest colored leaves. This layer, however, is also
@@ -46,7 +46,7 @@ class Build extends Component {
                 The emergent layer is home to; eagles, bats, gliding birds, insects(particularly butterflies) and monkeys.<br/><br/>
                 Examples of emergent layer trees:<br/>
                 . White Pine,
-              </h1>
+              </h2>
             </div>
           </div>
         </div>
@@ -56,7 +56,7 @@ class Build extends Component {
           <div className='hiddenInformation hiddenLevel2'>
             <img src={canopy} alt='not available' className='forestPic'/>
             <div className='hiddenTextBox'>
-              <h1>
+              <h2>
                 The canopy layer is the thickest and most competetive layer of the forest.
                 This layer is dominated by fruits, nuts and seeding trees that are fighting for light and resources.
                 The thick layering of the canopy creates a microclimate in the understory and shield
@@ -66,7 +66,7 @@ class Build extends Component {
                 frogs, parrots, squirrels, sloths, bats, owls.<br/><br/>
                 Examples of canopy layer trees include:
 
-              </h1>
+              </h2>
             </div>
           </div>
         </div>
@@ -76,7 +76,7 @@ class Build extends Component {
           <div className='hiddenInformation hiddenLevel3'>
             <img src={underStory} alt='not available' className='forestPic'/>
             <div className='hiddenTextBox'>
-              <h1>
+              <h2>
                 The understory or undergrowth comprises plants that live below the canopy
                 layer. This layer has limited light penetration due to the thick canopy
                 and so is comprised of shade tolerant plants. The understory has a more
@@ -86,7 +86,7 @@ class Build extends Component {
                 and mosquitos.<br/><br/>
                 Examples of understory plants include:
 
-              </h1>
+              </h2>
             </div>
           </div>
         </div>
@@ -96,7 +96,7 @@ class Build extends Component {
           <div className='hiddenInformation hiddenLevel4'>
             <img src={floor} alt='not available' className='forestPic'/>
             <div className='hiddenTextBox'>
-              <h1>
+              <h2>
                 The forest floor is a unique and important part of the ecosystem. It is
                 characterized by a thick layer of decomposing organic matter
                 and is comprised of leaf litter and a layer called the humus.
@@ -108,7 +108,7 @@ class Build extends Component {
                 This area is dominated by invertebrates and smaller mammals, particularly those
                 that burrow.<br/><br/>
                 Examples of forest floor plants include:
-              </h1>
+              </h2>
             </div>
           </div>
         </div>

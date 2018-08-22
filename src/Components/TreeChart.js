@@ -121,7 +121,7 @@ class TreeChart extends Component {
 
   handleHover(e) {
     const animalTarget = this.state.animalList[e.target.id]
-    const infoBox = document.querySelector('.animalInfoBox')
+    const infoBox = document.querySelector('.animalPopUp')
     infoBox.childNodes[0].innerHTML = animalTarget.name
     infoBox.childNodes[1].innerHTML = animalTarget.description
   }
@@ -138,6 +138,11 @@ class TreeChart extends Component {
               the other animals it attracts or the climates that it produces. <br/><br/>Hover
               over the images to get more information about some species challeneged
               by a lack of old growth forests
+            </h2>
+          </div>
+          <div className='animalInfoBox animalPopUp'>
+            <h1></h1>
+            <h2>
             </h2>
           </div>
         </div>

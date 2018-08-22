@@ -89,7 +89,7 @@ class Banner extends Component {
     const dropDown = document.getElementsByClassName('dropDownMenu')[0]
     dropDown.childNodes.forEach( (child, i) => {
       dropDown.style.display = 'grid'
-      child.style.animation = `dropDown ${(i + 1) * 0.2}s linear forwards`
+      child.style.animation = `dropDown ${(i + 1) * 0.1}s linear forwards`
     })
   }
 

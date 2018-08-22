@@ -72,5 +72,8 @@
 }
 
 .treeAnimalInfoContainer {
-  width: 100%
+  min-height: 600px;
+  width: 100%;
+  display: grid;
+  grid-template-rows: 1fr 1fr
 }
